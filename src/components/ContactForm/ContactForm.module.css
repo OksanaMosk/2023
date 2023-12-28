@@ -1,0 +1,99 @@
+.contactForm {
+  border: 1.5px solid #e6eaed;
+  position: relative;
+  width: 70vw;
+  height: 300px;
+  display: flex;
+  border-radius: 30px;
+  background-color: #af9e8e;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 10px 10px 7px 0px rgba(177, 185, 204, 0.12),
+    10px 10px 5px 0px rgba(177, 185, 204, 0.14),
+    10px 10px 5px 0px rgba(177, 185, 204, 0.12);
+  object-fit: cover;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  padding-bottom: 50px;
+  padding-left: 30px;
+}
+.contactForm:focus,
+.contactForm:hover {
+  transform: scale(1.03);
+}
+.inputName {
+  color: #e6eaed;
+  padding-left: 10px;
+  font-size: 20px;
+}
+
+.inputName:hover,
+.inputName:focus {
+  color: #b1b9cc;
+}
+.formInput {
+  padding-left: 20px;
+  margin-right: 40px;
+  background-color: #cec5bc;
+  color: #9a8f89;
+  font-size: 20px;
+  width: 230px;
+  height: 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+}
+.formInput:hover,
+.formInput:focus {
+  background-color: #e6eaed;
+  border: none;
+  color: #9a8f89;
+}
+
+.formInput::placeholder {
+  color: #9a8f89;
+  font-size: 20px;
+  border: none;
+}
+.formInput::placeholder::-moz-placeholder {
+  color: #9a8f89;
+}
+
+.submitButton:hover,
+.submitButton:focus {
+  background-color: #9a8f89;
+  color: #e9f3f5;
+}
+.submitButton {
+  position: absolute;
+  bottom: -70px;
+  left: 31.5vw;
+  display: flex;
+  font-size: 20px;
+  background-color: #9a8f89;
+  width: 90px;
+  height: 110px;
+  border: 1px solid #9a8f89;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  text-transform: inherit;
+}
+.book {
+  position: absolute;
+  top: -70px;
+  left: 31.5vw;
+  z-index: 1;
+}
+.book_2 {
+  position: absolute;
+  z-index: 1;
+}
+

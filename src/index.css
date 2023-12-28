@@ -1,0 +1,16 @@
+@import-normalize; /* bring in normalize.css styles */
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  background-color: #9a8f89;
+  font-family: 'Times New Roman', Times, serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

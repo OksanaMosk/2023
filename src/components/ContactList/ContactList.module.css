@@ -1,0 +1,33 @@
+.contactList {
+  font-weight: 300;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  color: #6e6662;
+  font-size: 22px;
+  margin-inline-start: 0;
+  padding-inline-start: 0;
+}
+
+.contactContainer {
+  border: 1.5px solid #e6eaed;
+  width: 35vw;
+  min-width: 300px;
+  height: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 20px;
+  background-color: #cec5bc;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 10px 10px 7px 0px rgba(177, 185, 204, 0.12),
+    10px 10px 5px 0px rgba(177, 185, 204, 0.14),
+    10px 10px 5px 0px rgba(177, 185, 204, 0.12);
+  object-fit: cover;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.contactContainer:hover,
+.contactContainer:focus {
+  transform: scale(1.03);
+}

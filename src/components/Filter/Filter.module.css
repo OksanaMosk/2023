@@ -1,0 +1,44 @@
+.formlFind {
+  padding-top: 100px;
+  padding-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.labelFind {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  color: #6e6662;
+  font-weight: 600;
+  width: 230px;
+  font-size: 20px;
+}
+
+.inputFind {
+  align-items: center;
+  display: flex;
+  font-size: 20px;
+  color: #9a8f89;
+  padding-left: 20px;
+  background-color: #b1b9cc;
+  border-radius: 15px;
+  width: 200px;
+  height: 30px;
+  cursor: pointer;
+  border: 1px solid #6e6662;
+}
+
+.inputFind:hover,
+.inputFind:focus {
+  background-color: #e6eaed;
+}
+
+.inputFind ::placeholder {
+  color: #6e6662;
+  font-size: 20px;
+  border: none;
+}
