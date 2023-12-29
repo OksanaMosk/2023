@@ -12,7 +12,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #af9e8e;
+  background-color: white;
   cursor: pointer;
   box-shadow: 10px 10px 7px 0px rgba(177, 185, 204, 0.12),
     10px 10px 5px 0px rgba(177, 185, 204, 0.14),

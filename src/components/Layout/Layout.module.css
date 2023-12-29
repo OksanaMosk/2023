@@ -1,5 +1,5 @@
 header {
-  background-color: #cec5bc;
+  background-color: white;
   justify-content: space-between;
   position: relative;
   display: flex;
@@ -17,10 +17,7 @@ header {
   object-fit: cover;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-header:focus,
-header:hover {
-  transform: scale(1.03);
-}
+
 .menu {
   display: flex;
   flex-wrap: wrap;
