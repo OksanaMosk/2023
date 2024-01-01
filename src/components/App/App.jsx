@@ -19,73 +19,73 @@ const appRoutes = [
   {
     path: ROUTES.HOME_ROUTE,
     element: (
-      <RestrictedRoute>
-        <HomePage />
-      </RestrictedRoute>
+      // <RestrictedRoute>
+      <HomePage />
+      // </RestrictedRoute>
     ),
   },
   {
     path: ROUTES.ADD_ROUTE,
     element: (
-      <PrivateRoute>
-        <AddPage />
-      </PrivateRoute>
+      // <PrivateRoute>
+      <AddPage />
+      // </PrivateRoute>
     ),
   },
   {
     path: ROUTES.CONTACTS_ROUTE,
     element: (
-      <PrivateRoute>
-        <ContactsPage />
-      </PrivateRoute>
+      // <PrivateRoute>
+      <ContactsPage />
+      // </PrivateRoute>
     ),
   },
-  {
-    path: ROUTES.REGISTER_ROUTE,
-    element: (
-      <RestrictedRoute>
-        <Register />
-      </RestrictedRoute>
-    ),
-  },
-  {
-    path: ROUTES.LOGIN_ROUTE,
-    element: (
-      <RestrictedRoute>
-        <Login />
-      </RestrictedRoute>
-    ),
-  },
-  {
-    path: ROUTES.ERROR_ROUTE,
+  // {
+  //   path: ROUTES.REGISTER_ROUTE,
+  //   element: (
+  //     <RestrictedRoute>
+  //       <Register />
+  //     </RestrictedRoute>
+  //   ),
+  // },
+  // {
+  //   path: ROUTES.LOGIN_ROUTE,
+  //   element: (
+  //     <RestrictedRoute>
+  //       <Login />
+  //     </RestrictedRoute>
+  //   ),
+  // },
+  // {
+  //   path: ROUTES.ERROR_ROUTE,
 
-    element: (
-      <RestrictedRoute>
-        <Page404 />
-      </RestrictedRoute>
-    ),
-  },
-  {
-    path: ROUTES.NOTFOUNDPPAGE_ROUTE,
+  //   element: (
+  //     // <RestrictedRoute>
+  //     <Page404 />
+  //     // </RestrictedRoute>
+  //   ),
+  // },
+  // {
+  //   path: ROUTES.NOTFOUNDPPAGE_ROUTE,
 
-    element: (
-      <RestrictedRoute>
-        <NotFoundPage />
-      </RestrictedRoute>
-    ),
-  },
+  //   element: (
+  //     // <RestrictedRoute>
+  //     <NotFoundPage />
+  //     // </RestrictedRoute>
+  //   ),
+  // },
 ];
 export const App = () => {
-  const authenticated = useSelector(selectAuthenticated);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(refreshThunk(authenticated));
-  }, [authenticated, dispatch]);
+  // const authenticated = useSelector(selectAuthenticated);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(refreshThunk(authenticated));
+  // }, [authenticated, dispatch]);
 
   return (
     <Layout>
       <Routes>
-        <Route path="*" element={<NotFoundPage />} />
+        {/* <Route path="*" element={<NotFoundPage />} /> */}
         {appRoutes.map(({ path, element }) => (
           <Route key={path} path={path} element={element} />
         ))}

@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
   const userData = useSelector(selectUserData);
   const location = useLocation();
   const dispatsh = useDispatch();
-  const authenticated = useSelector(selectAuthenticated);
+  // const authenticated = useSelector(selectAuthenticated);
 
   const onLogOut = () => {
     dispatsh(logOutThunk());
@@ -20,7 +20,7 @@ const Layout = ({ children }) => {
     <div>
       <header>
         <h1 className={css.mainTitle}>Phonebook</h1>
-        {authenticated ? (
+        {/* {authenticated ? (
           <>
             <div className={css.menu}>
               <NavLink state={{ from: location }} to="/"></NavLink>
@@ -62,7 +62,7 @@ const Layout = ({ children }) => {
               Login
             </NavLink>
           </div>
-        )}
+        )} */}
       </header>
       <main>{children}</main>
     </div>

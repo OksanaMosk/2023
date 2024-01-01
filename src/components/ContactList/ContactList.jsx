@@ -1,4 +1,4 @@
-import { ContactElement } from '../ContactElement/ContactElement';
+import { HomeElement } from '../ContactElement/ContactElement';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContacts, fetchContacts } from 'redux/contacts/contacts.reducer';
 import { useParams } from 'react-router-dom';
@@ -9,50 +9,50 @@ import { useEffect } from 'react';
 import css from './ContactList.module.css';
 
 export const ContactList = () => {
-  const contacts = useSelector(selectContacts);
-  const id = useParams();
+  const listResults = useSelector(selectContacts);
+  const zpid = useParams();
 
   const filterTerm = useSelector(selectFilterTerm);
 
   const dispatch = useDispatch();
   const mpDelete = 'https://audio.code.org/goal2.mp3';
-
+  console.log('listResults', listResults);
   useEffect(() => {
-    dispatch(fetchContacts(id));
-  }, [id, dispatch]);
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
-  const removeContact = contactId => {
-    dispatch(deleteContacts(contactId));
-    new Audio(mpDelete).play();
-  };
+  // const removeContact = contactId => {
+  //   dispatch(deleteContacts(contactId));
+  //   new Audio(mpDelete).play();
+  // };
 
-  const visibleContacts = () => {
-    return contacts.filter(contact =>
-      contact.name
-        .toString()
-        .toLowerCase()
-        .includes(filterTerm.toString().toLowerCase())
-    );
-  };
+  // const visibleContacts = () => {
+  //   return home.filter(contact =>
+  //    home.name
+  //       .toString()
+  //       .toLowerCase()
+  //       .includes(filterTerm.toString().toLowerCase())
+  //   );
+  // };
 
-  const visContacts = visibleContacts();
-  const sorted = [...visContacts].sort((a, b) =>
-    a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
-  );
+  // const visContacts = visibleContacts();
+  // const sorted = [...visContacts].sort((a, b) =>
+  //   a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
+  // );
 
   return (
-    contacts !== null && (
+    listResults !== null && (
       <div className={css.contactContainer}>
         <ul className={css.contactList}>
-          {Array.isArray(contacts) &&
-            contacts.length > 0 &&
-            sorted.map(({ name, number, id }) => (
-              <ContactElement
-                key={id}
-                name={name}
-                number={number}
-                id={id}
-                onRemoveContact={removeContact}
+          {Array.isArray(listResults) &&
+            listResults.length > 0 &&
+            listResults.map(({ address, price, imgSrc, zpid }) => (
+              <HomeElement
+                key={zpid}
+                price={price}
+                // img={imgSrc}
+                address={address}
+                // onRemoveContact={removeContact}
               />
             ))}
         </ul>

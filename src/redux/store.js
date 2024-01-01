@@ -16,9 +16,9 @@ import { filterReducer } from './filter/filter.reducer';
 import { authReducer } from './auth/auth.reducer';
 
 const contactsConfig = {
-  key: 'contacts',
+  key: 'homes',
   storage,
-  whitelist: ['contacts'],
+  whitelist: ['homes'],
 };
 const authConfig = {
   key: 'auth',

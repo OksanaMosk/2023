@@ -5,25 +5,26 @@ import LoaderSmall from 'components/Loader/LoaderSmall';
 
 import css from './ContactElement.module.css';
 
-export const ContactElement = ({ id, name, number, onRemoveContact }) => {
+export const HomeElement = ({ price, imgSrc, zpid, address }) => {
   const isLoading = useSelector(state => state.contactsStore.isLoading);
   const error = useSelector(state => state.contactsStore.error);
   return (
-    <li className={css.itemContact} key={id}>
+    <li className={css.itemContact} key={zpid}>
       <div className={css.everyItem}>
-        <img src={iconPhoto} alt="{iconPhoto}" width={20} height={30}></img>
-        <p>{name}</p>
-        <p>{number}</p>
+        {/* <img src={imgSrc} alt="{iconPhoto}" width={300} height={300}></img> */}
+
+        <p>{price}</p>
+        <p>{address}</p>
         {isLoading && <LoaderSmall />}
         {error !== null && <>{error}</>}
-        <button
+        {/* <button
           className={css.buttonDelete}
           type="button"
           name="delete"
-          onClick={() => onRemoveContact(id)}
+          // onClick={() => onRemoveContact(zpid)}
         >
           <img src={svgDelete} alt="{svgDelete}" width={30}></img>
-        </button>
+        </button> */}
       </div>
     </li>
   );
