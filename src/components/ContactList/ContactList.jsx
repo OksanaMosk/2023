@@ -17,6 +17,7 @@ export const ContactList = () => {
   const dispatch = useDispatch();
   const mpDelete = 'https://audio.code.org/goal2.mp3';
   console.log('listResults', listResults);
+  console.log('listResults.carouselPhotos[0].url:', listResults.carouselPhotos);
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
@@ -47,11 +48,20 @@ export const ContactList = () => {
           {Array.isArray(listResults) &&
             listResults.length > 0 &&
             listResults.map(
-              ({ address, price, imgSrc, zpid, baths, beds, area }) => (
+              ({
+                address,
+                price,
+                imgSrc,
+                zpid,
+                baths,
+                beds,
+                area,
+                carouselPhotos,
+              }) => (
                 <HomeElement
                   key={zpid}
                   price={price}
-                  img={imgSrc}
+                  img={carouselPhotos[0].url}
                   address={address}
                   beds={beds}
                   baths={baths}

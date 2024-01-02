@@ -8,7 +8,7 @@ export const fetchContacts = createAsyncThunk(
   async (_, thunkApi) => {
     try {
       const { data } = await axios.get(
-        'https://app.scrapeak.com/v1/scrapers/zillow/listing?api_key=287740c2-3eba-4f0a-bf10-df1877bda283&url=https://www.zillow.com/?searchQueryState=%7B%22pagination%22%3A%7B%7D%2C%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A37.38535259536369%2C%22south%22%3A36.76300834703627%2C%22east%22%3A-83.53414213085937%2C%22west%22%3A-84.61354886914062%7D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%2C%22ah%22%3A%7B%22value%22%3Atrue%7D%7D%2C%22isListVisible%22%3Atrue%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A53028%2C%22regionType%22%3A6%7D%5D%7D'
+        'https://app.scrapeak.com/v1/scrapers/zillow/listing?api_key=f2ca45df-3794-466c-893c-787ea4cb2c15&url=https://www.zillow.com/?searchQueryState=%7B%22pagination%22%3A%7B%7D%2C%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A37.38535259536369%2C%22south%22%3A36.76300834703627%2C%22east%22%3A-83.53414213085937%2C%22west%22%3A-84.61354886914062%7D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%2C%22ah%22%3A%7B%22value%22%3Atrue%7D%7D%2C%22isListVisible%22%3Atrue%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A53028%2C%22regionType%22%3A6%7D%5D%7D'
       );
 
       // console.log('data.listResults: ', data.listResults);
@@ -60,7 +60,6 @@ const contactsSlice = createSlice({
         state.listResults = payload;
         state.isLoading = false;
         state.error = null;
-        console.log('state.homes', state.homes);
       })
       // .addCase(addContacts.fulfilled, (state, { payload }) => {
       //   state.contacts.push(payload);
