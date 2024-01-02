@@ -13,13 +13,14 @@
   border: none;
 }
 
-.itemContact:after {
+/* .itemContact:after {
   content: '';
   display: table;
   clear: both;
-}
+} */
 
 .everyItem {
+  aspect-ratio: 0;
   display: flex;
   flex-wrap: nowrap;
   gap: 30px;
@@ -27,14 +28,13 @@
 }
 .everyItem > p {
   float: left;
-  width: 33.33%;
+
   padding: 5px;
   margin-block-end: 0px;
   margin-block-start: 0px;
 }
 .everyItem > button,
 .everyItem > img {
-  width: 5%;
   float: left;
 
   margin-block-end: 0px;

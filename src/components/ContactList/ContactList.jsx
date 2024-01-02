@@ -46,15 +46,21 @@ export const ContactList = () => {
         <ul className={css.contactList}>
           {Array.isArray(listResults) &&
             listResults.length > 0 &&
-            listResults.map(({ address, price, imgSrc, zpid }) => (
-              <HomeElement
-                key={zpid}
-                price={price}
-                // img={imgSrc}
-                address={address}
-                // onRemoveContact={removeContact}
-              />
-            ))}
+            listResults.map(
+              ({ address, price, imgSrc, zpid, baths, beds, area }) => (
+                <HomeElement
+                  key={zpid}
+                  price={price}
+                  img={imgSrc}
+                  address={address}
+                  beds={beds}
+                  baths={baths}
+                  area={area}
+
+                  // onRemoveContact={removeContact}
+                />
+              )
+            )}
         </ul>
       </div>
     )

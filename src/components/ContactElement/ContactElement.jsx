@@ -5,16 +5,28 @@ import LoaderSmall from 'components/Loader/LoaderSmall';
 
 import css from './ContactElement.module.css';
 
-export const HomeElement = ({ price, imgSrc, zpid, address }) => {
+export const HomeElement = ({
+  price,
+  imgSrc,
+  zpid,
+  address,
+  baths,
+  beds,
+  area,
+}) => {
   const isLoading = useSelector(state => state.contactsStore.isLoading);
   const error = useSelector(state => state.contactsStore.error);
   return (
     <li className={css.itemContact} key={zpid}>
       <div className={css.everyItem}>
-        {/* <img src={imgSrc} alt="{iconPhoto}" width={300} height={300}></img> */}
+        <img src={imgSrc} alt="" width={300} height={300}></img>
 
         <p>{price}</p>
         <p>{address}</p>
+        <p>{baths}</p>
+        <p>{beds}</p>
+        <p>{area}</p>
+
         {isLoading && <LoaderSmall />}
         {error !== null && <>{error}</>}
         {/* <button
