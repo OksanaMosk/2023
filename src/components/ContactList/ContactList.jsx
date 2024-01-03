@@ -17,7 +17,7 @@ export const ContactList = () => {
   const dispatch = useDispatch();
   const mpDelete = 'https://audio.code.org/goal2.mp3';
   console.log('listResults', listResults);
-  console.log('listResults.carouselPhotos[0].url:', listResults.carouselPhotos);
+
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
@@ -47,30 +47,19 @@ export const ContactList = () => {
         <ul className={css.contactList}>
           {Array.isArray(listResults) &&
             listResults.length > 0 &&
-            listResults.map(
-              ({
-                address,
-                price,
-                imgSrc,
-                zpid,
-                baths,
-                beds,
-                area,
-                carouselPhotos,
-              }) => (
-                <HomeElement
-                  key={zpid}
-                  price={price}
-                  img={carouselPhotos[0].url}
-                  address={address}
-                  beds={beds}
-                  baths={baths}
-                  area={area}
+            listResults.map(listResult => (
+              <HomeElement
+                key={listResult.id}
+                price={listResult.price}
+                img={listResult.url}
+                address={listResult.address}
+                beds={listResult.beds}
+                baths={listResult.baths}
+                area={listResult.area}
 
-                  // onRemoveContact={removeContact}
-                />
-              )
-            )}
+                // onRemoveContact={removeContact}
+              />
+            ))}
         </ul>
       </div>
     )

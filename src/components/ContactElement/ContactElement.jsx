@@ -9,29 +9,25 @@ export const HomeElement = ({
   price,
   listResults,
   imgSrc,
+  hdpData,
   zpid,
   address,
   baths,
   beds,
   area,
-  carouselPhotos,
+  id,
+  detailUrl,
 }) => {
   const isLoading = useSelector(state => state.contactsStore.isLoading);
   const error = useSelector(state => state.contactsStore.error);
-  const bath_url = 'https://photos.zillowstatic.com/fp/';
-  // const second_url = imgSrc.toString.splice(34, -2);
-  console.log(carouselPhotos.JSON.stringify(Array));
-  return (
-    <li className={css.itemContact} key={zpid}>
-      <div className={css.everyItem}>
-        <img
-          src={bath_url + '6fbf9ebfe9e79e009236dc2edd8c3a31-p_e.jpg'}
-          alt=""
-          width={357}
-          height={267}
-        />
-        <p>it is:{bath_url}</p>
 
+  return (
+    <li className={css.itemContact} key={id}>
+      <div className={css.everyItem}>
+        <img src={detailUrl} alt={address} width={330} height={220}></img>
+
+        <p>it is:{detailUrl}</p>
+        <p>{zpid}</p>
         <p>{price}</p>
         <p>{address}</p>
         <p>{baths}</p>
