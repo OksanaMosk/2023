@@ -5,13 +5,15 @@ import { useParams } from 'react-router-dom';
 import { selectContacts } from 'redux/contacts/contacts.selector';
 import { selectFilterTerm } from 'redux/filter/filter.selector';
 import { useEffect } from 'react';
+import LoaderSmall from 'components/Loader/LoaderSmall';
 
 import css from './ContactList.module.css';
 
 export const ContactList = () => {
   const listResults = useSelector(selectContacts);
   const zpid = useParams();
-
+  const isLoading = useSelector(state => state.contactsStore.isLoading);
+  const error = useSelector(state => state.contactsStore.error);
   const filterTerm = useSelector(selectFilterTerm);
 
   const dispatch = useDispatch();
@@ -42,24 +44,56 @@ export const ContactList = () => {
   // );
 
   return (
-    listResults !== null && (
+    listResults.imgSrc !== null && (
       <div className={css.contactContainer}>
         <ul className={css.contactList}>
-          {Array.isArray(listResults) &&
-            listResults.length > 0 &&
-            listResults.map(listResult => (
-              <HomeElement
-                key={listResult.id}
-                price={listResult.price}
-                img={listResult.url}
-                address={listResult.address}
-                beds={listResult.beds}
-                baths={listResult.baths}
-                area={listResult.area}
+          {listResults.map(result => (
+            <li className={css.itemContact} key={result.id}>
+              <div className={css.everyItem}>
+                {result.imgSrc && (
+                  <img
+                    src={result.imgSrc}
+                    alt={`House ${result.id}`}
+                    style={{ width: '330px' }}
+                  />
+                )}
+                <div className={css.aboutContact}>
+                  <p>{result.price}</p>
+                  <p>{result.address}</p>
+                  <div className={css.aboutDetails}>
+                    <p>{result.beds}</p>
+                    <p>{result.baths}</p>
+                    <p>{result.area}</p>
+                  </div>
+                </div>
 
-                // onRemoveContact={removeContact}
-              />
-            ))}
+                {isLoading && <LoaderSmall />}
+                {error !== null && <>{error}</>}
+                {/* <button
+          className={css.buttonDelete}
+          type="button"
+          name="delete"
+          // onClick={() => onRemoveContact(zpid)}
+        >
+          <img src={svgDelete} alt="{svgDelete}" width={30}></img>
+        </button> */}
+              </div>
+            </li>
+          ))}
+
+          {/* {Array.isArray(listResults) &&
+            listResults.length > 0 &&
+            listResults.map(result => (
+              <HomeElement
+                key={result.id}
+                price={result.price}
+                img={result.imgSrc}
+                address={result.address}
+                beds={result.beds}
+                baths={result.baths}
+                area={result.area} */}
+          {/* // onRemoveContact={removeContact} */}
+          {/* /> ))} */}
         </ul>
       </div>
     )

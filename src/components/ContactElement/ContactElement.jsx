@@ -21,29 +21,14 @@ export const HomeElement = ({
   const isLoading = useSelector(state => state.contactsStore.isLoading);
   const error = useSelector(state => state.contactsStore.error);
 
-  return (
-    <li className={css.itemContact} key={id}>
-      <div className={css.everyItem}>
-        <img src={detailUrl} alt={address} width={330} height={220}></img>
-
-        <p>it is:{detailUrl}</p>
-        <p>{zpid}</p>
-        <p>{price}</p>
-        <p>{address}</p>
-        <p>{baths}</p>
-        <p>{beds}</p>
-        <p>{area}</p>
-        {isLoading && <LoaderSmall />}
-        {error !== null && <>{error}</>}
-        {/* <button
+  return {
+    /* <button
           className={css.buttonDelete}
           type="button"
           name="delete"
           // onClick={() => onRemoveContact(zpid)}
         >
           <img src={svgDelete} alt="{svgDelete}" width={30}></img>
-        </button> */}
-      </div>
-    </li>
-  );
+        </button> */
+  };
 };
