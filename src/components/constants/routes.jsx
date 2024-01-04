@@ -1,5 +1,5 @@
 export const HOME_ROUTE = '/';
-export const ADD_ROUTE = '/add';
+export const ADD_ROUTE = '/about';
 export const CONTACTS_ROUTE = '/contacts';
 export const REGISTER_ROUTE = '/register';
 export const LOGIN_ROUTE = '/login';

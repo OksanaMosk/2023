@@ -10,7 +10,7 @@ import iconBath from '../images/iconBath.png';
 import iconBed from '../images/iconBed.png';
 import iconSizeFt from '../images/iconSizeFt.png';
 import iconSizeM from '../images/iconSizeM.png';
-
+import { NavLink } from 'react-router-dom';
 import css from './ContactList.module.css';
 
 export const ContactList = () => {
@@ -58,7 +58,7 @@ export const ContactList = () => {
                   <img
                     src={result.imgSrc}
                     alt={`House ${result.id}`}
-                    style={{ width: '330px' }}
+                    style={{ width: 'auto', maxHeight: '250px' }}
                   />
                 )}
                 <div className={css.about}>
@@ -67,50 +67,48 @@ export const ContactList = () => {
                   <div className={css.aboutDetails}>
                     <p>
                       <img
+                        className={css.icon}
                         src={iconBath}
-                        alt={`House ${result.id}`}
-                        style={{ width: '30px', height: '30px' }}
+                        alt="iconBath"
+                        style={{ width: '20px', height: '20px' }}
                       />
                       {result.beds}
                     </p>
                     <p>
                       <img
+                        className={css.icon}
                         src={iconBed}
-                        alt={`House ${result.id}`}
-                        style={{ width: '30px', height: '30px' }}
+                        alt="iconBed"
+                        style={{ width: '20px', height: '20px' }}
                       />
                       {result.baths}
                     </p>
                     <p>
                       <img
+                        className={css.icon}
                         src={iconSizeFt}
-                        alt={`House ${result.id}`}
-                        style={{ width: '30px', height: '30px' }}
+                        alt="iconSizeFt"
+                        style={{ width: '20px', height: '20px' }}
                       />
                       {result.area} sqft
                     </p>
                     <p>
-                      {' '}
                       <img
+                        className={css.icon}
                         src={iconSizeM}
-                        alt={`House ${result.id}`}
-                        style={{ width: '30px', height: '30px' }}
+                        alt="iconSizeM"
+                        style={{ width: '20px', height: '20px' }}
                       />
                       {(result.area / 10.7638).toFixed(2)} m²
                     </p>
                   </div>
+                  <NavLink className={css.buttonDelete} to="/contacts/about">
+                    View details
+                  </NavLink>
                 </div>
 
                 {isLoading && <LoaderSmall />}
                 {error !== null && <>{error}</>}
-                {/* <button
-          className={css.buttonDelete}
-          type="button"
-          name="delete"
-          // onClick={() => onRemoveContact(zpid)}
-        >
-          <img src={svgDelete} alt="{svgDelete}" width={30}></img>
-        </button> */}
               </div>
             </li>
           ))}

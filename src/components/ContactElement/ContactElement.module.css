@@ -1,4 +1,4 @@
-.buttonDelete {
+/* .buttonDelete {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,7 +11,7 @@
   cursor: pointer;
   text-transform: inherit;
   border: none;
-}
+} */
 
 /* .itemContact:after {
   content: '';
