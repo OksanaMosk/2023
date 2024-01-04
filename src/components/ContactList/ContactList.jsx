@@ -6,6 +6,10 @@ import { selectContacts } from 'redux/contacts/contacts.selector';
 import { selectFilterTerm } from 'redux/filter/filter.selector';
 import { useEffect } from 'react';
 import LoaderSmall from 'components/Loader/LoaderSmall';
+import iconBath from '../images/iconBath.png';
+import iconBed from '../images/iconBed.png';
+import iconSizeFt from '../images/iconSizeFt.png';
+import iconSizeM from '../images/iconSizeM.png';
 
 import css from './ContactList.module.css';
 
@@ -57,13 +61,43 @@ export const ContactList = () => {
                     style={{ width: '330px' }}
                   />
                 )}
-                <div className={css.aboutContact}>
-                  <p>{result.price}</p>
-                  <p>{result.address}</p>
+                <div className={css.about}>
+                  <p className={css.price}>{result.price}</p>
+                  <p className={css.address}>{result.address}</p>
                   <div className={css.aboutDetails}>
-                    <p>{result.beds}</p>
-                    <p>{result.baths}</p>
-                    <p>{result.area}</p>
+                    <p>
+                      <img
+                        src={iconBath}
+                        alt={`House ${result.id}`}
+                        style={{ width: '30px', height: '30px' }}
+                      />
+                      {result.beds}
+                    </p>
+                    <p>
+                      <img
+                        src={iconBed}
+                        alt={`House ${result.id}`}
+                        style={{ width: '30px', height: '30px' }}
+                      />
+                      {result.baths}
+                    </p>
+                    <p>
+                      <img
+                        src={iconSizeFt}
+                        alt={`House ${result.id}`}
+                        style={{ width: '30px', height: '30px' }}
+                      />
+                      {result.area} sqft
+                    </p>
+                    <p>
+                      {' '}
+                      <img
+                        src={iconSizeM}
+                        alt={`House ${result.id}`}
+                        style={{ width: '30px', height: '30px' }}
+                      />
+                      {(result.area / 10.7638).toFixed(2)} m²
+                    </p>
                   </div>
                 </div>
 

@@ -3,7 +3,7 @@ import { useLocation, NavLink } from 'react-router-dom';
 import { selectAuthenticated } from 'redux/auth/auth.selectors';
 import { selectUserData } from 'redux/auth/auth.selectors';
 import { logOutThunk } from 'redux/auth/auth.reducer';
-
+import zillow from '../images/iconZillow.png';
 import css from './Layout.module.css';
 
 const Layout = ({ children }) => {
@@ -19,7 +19,14 @@ const Layout = ({ children }) => {
   return (
     <div>
       <header>
-        <h1 className={css.mainTitle}>Phonebook</h1>
+        <h1 className={css.mainTitle}>
+          <img
+            src={zillow}
+            alt="zillow"
+            style={{ width: '40px', height: '40px' }}
+          />
+          Realestate
+        </h1>
         {/* {authenticated ? (
           <>
             <div className={css.menu}>

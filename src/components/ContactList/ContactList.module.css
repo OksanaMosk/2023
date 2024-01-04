@@ -1,4 +1,6 @@
 .contactList {
+  font-weight: 400;
+  color: black;
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -9,7 +11,7 @@
 
 .itemContact {
   border: 1.5px solid #e6eaed;
-  width: 700px;
+  width: 750px;
   height: auto;
   border-radius: 20px;
   background-color: white;
@@ -54,7 +56,7 @@
   display: flex;
   flex-wrap: nowrap;
   gap: 10px;
-  color: black;
+  color: #4d4c4c;
 }
 
 /* .everyItem > button, */
@@ -62,15 +64,21 @@
 .everyItem > img {
   border-radius: 20px 0 0 20px;
 }
-.aboutContact {
-  flex-direction: column;
-  justify-content: center;
+.about {
+  font-size: 16px;
+  align-items: start;
   flex-wrap: wrap;
-  text-align: center;
+  padding-left: 15px;
+}
+.price {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.address {
 }
 .aboutDetails {
-  flex-direction: row;
-  flex-wrap: nowrap;
+  display: inline;
 }
 
 /* https://www.realestate.com.au/international/ae/dubai// */

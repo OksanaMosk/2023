@@ -6,7 +6,7 @@ import { Navigate, NavLink } from 'react-router-dom';
 import Filter from 'components/Filter/Filter';
 import Loader from 'components/Loader/Loader';
 import { useRef } from 'react';
-import error1 from 'images/icons8-no-yelling-100.png';
+
 import css from './ContactsPage.module.css';
 
 const ContactsPage = () => {
@@ -35,10 +35,7 @@ const ContactsPage = () => {
         <ContactList /> */}
       </>
       {/* ) : ( */}
-      <p className={css.noContacts}>
-        Your phonebook is empty. Add your first contact!
-        <img src={error1} alt="{svgDelete}" width={200} height={200}></img>
-      </p>
+
       {/* )} */}
     </div>
   );

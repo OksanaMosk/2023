@@ -1,6 +1,5 @@
 import { useSelector } from 'react-redux';
-import svgDelete from '../../images/icons8-delete-32.png';
-import iconPhoto from '../../images/icons8-contact-78.png';
+
 import LoaderSmall from 'components/Loader/LoaderSmall';
 
 import css from './ContactElement.module.css';
