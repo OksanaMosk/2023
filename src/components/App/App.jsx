@@ -26,19 +26,11 @@ const appRoutes = [
   },
   {
     path: ROUTES.ADD_ROUTE,
-    element: (
-      // <PrivateRoute>
-      <AddPage />
-      // </PrivateRoute>
-    ),
+    element: <AddPage />,
   },
   {
     path: ROUTES.CONTACTS_ROUTE,
-    element: (
-      // <PrivateRoute>
-      <ContactsPage />
-      // </PrivateRoute>
-    ),
+    element: <ContactsPage />,
   },
   // {
   //   path: ROUTES.REGISTER_ROUTE,
@@ -86,6 +78,8 @@ export const App = () => {
     <Layout>
       <Routes>
         {/* <Route path="*" element={<NotFoundPage />} /> */}
+        {/* <Route path="/contacts/id" element={<AddPage />} /> */}
+
         {appRoutes.map(({ path, element }) => (
           <Route key={path} path={path} element={element} />
         ))}

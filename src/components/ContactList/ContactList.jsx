@@ -1,6 +1,6 @@
 import { HomeElement } from '../ContactElement/ContactElement';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContacts, fetchContacts } from 'redux/contacts/contacts.reducer';
+import { fetchHome } from 'redux/contacts/contacts.reducer';
 import { useParams } from 'react-router-dom';
 import { selectContacts } from 'redux/contacts/contacts.selector';
 import { selectFilterTerm } from 'redux/filter/filter.selector';
@@ -25,7 +25,7 @@ export const ContactList = () => {
   console.log('listResults', listResults);
 
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(fetchHome());
   }, [dispatch]);
 
   // const removeContact = contactId => {
@@ -102,7 +102,7 @@ export const ContactList = () => {
                       {(result.area / 10.7638).toFixed(2)} m²
                     </p>
                   </div>
-                  <NavLink className={css.buttonDelete} to="/contacts/about">
+                  <NavLink className={css.buttonDelete} to="/contacts/id">
                     View details
                   </NavLink>
                 </div>
