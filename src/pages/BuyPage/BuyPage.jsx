@@ -1,24 +1,24 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { ContactList } from 'components/ContactList/ContactList';
+import { BuyList } from 'components/BuyList/BuyList';
 import { useLocation } from 'react-router-dom';
-import { Navigate, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Filter from 'components/Filter/Filter';
 import Loader from 'components/Loader/Loader';
 import { useRef } from 'react';
 
-import css from './ContactsPage.module.css';
+import css from './BuyPage.module.css';
 
-const ContactsPage = () => {
-  const listResults = useSelector(state => state.contactsStore.listResults);
+const BuyPage = () => {
+  //   const listResults = useSelector(state => state.contactsStore.listResults);
   const isLoading = useSelector(state => state.contactsStore.isLoading);
-  const error = useSelector(state => state.contactsStore.error);
+  // const error = useSelector(state => state.contactsStore.error);
   const location = useLocation();
   const backLinkRef = useRef(location.state?.from ?? '/');
 
   return (
     <div className={css.contacts}>
-      <ContactList />
+      <BuyList />
       {/* {error !== null && <Navigate to="/contacts/404" replace={true} />} */}
       <NavLink
         state={{ from: location }}
@@ -40,4 +40,4 @@ const ContactsPage = () => {
     </div>
   );
 };
-export default ContactsPage;
+export default BuyPage;

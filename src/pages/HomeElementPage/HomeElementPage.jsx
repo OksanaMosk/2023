@@ -3,7 +3,8 @@ import { useLocation } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import { useRef } from 'react';
 
-import css from './AddPage.module.css';
+import css from './HomeElementPage.module.css';
+import { HomeElement } from 'components/HomeElement/HomeElement';
 
 const AddPage = () => {
   const location = useLocation();
@@ -16,7 +17,7 @@ const AddPage = () => {
       </NavLink>
       <div className={css.container}>
         <div>
-          <ContactForm />
+          <HomeElement />
         </div>
       </div>
     </>

@@ -1,9 +1,8 @@
-import { HomeElement } from '../ContactElement/ContactElement';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchHome } from 'redux/contacts/contacts.reducer';
-import { useParams } from 'react-router-dom';
+
 import { selectContacts } from 'redux/contacts/contacts.selector';
-import { selectFilterTerm } from 'redux/filter/filter.selector';
+// import { selectFilterTerm } from 'redux/filter/filter.selector';
 import { useEffect } from 'react';
 import LoaderSmall from 'components/Loader/LoaderSmall';
 import iconBath from '../images/iconBath.png';
@@ -11,17 +10,17 @@ import iconBed from '../images/iconBed.png';
 import iconSizeFt from '../images/iconSizeFt.png';
 import iconSizeM from '../images/iconSizeM.png';
 import { NavLink } from 'react-router-dom';
-import css from './ContactList.module.css';
+import css from './BuyList.module.css';
 
-export const ContactList = () => {
+export const BuyList = () => {
   const listResults = useSelector(selectContacts);
-  const zpid = useParams();
+  // const zpid = useParams();
   const isLoading = useSelector(state => state.contactsStore.isLoading);
   const error = useSelector(state => state.contactsStore.error);
-  const filterTerm = useSelector(selectFilterTerm);
+  // const filterTerm = useSelector(selectFilterTerm);
 
   const dispatch = useDispatch();
-  const mpDelete = 'https://audio.code.org/goal2.mp3';
+
   console.log('listResults', listResults);
 
   useEffect(() => {
@@ -52,12 +51,12 @@ export const ContactList = () => {
       <div className={css.contactContainer}>
         <ul className={css.contactList}>
           {listResults.map(result => (
-            <li className={css.itemContact} key={result.id}>
+            <li className={css.itemContact} key={result.zpid}>
               <div className={css.everyItem}>
                 {result.imgSrc && (
                   <img
                     src={result.imgSrc}
-                    alt={`House ${result.id}`}
+                    alt={`House ${result.zpid}`}
                     style={{ width: 'auto', maxHeight: '250px' }}
                   />
                 )}
@@ -102,7 +101,11 @@ export const ContactList = () => {
                       {(result.area / 10.7638).toFixed(2)} m²
                     </p>
                   </div>
-                  <NavLink className={css.buttonDelete} to="/contacts/id">
+                  <NavLink
+                    className={css.buttonDelete}
+                    key={result.id}
+                    to={`/contacts/${result.id}`}
+                  >
                     View details
                   </NavLink>
                 </div>

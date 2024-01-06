@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { refreshThunk } from 'redux/auth/auth.reducer';
 import HomePage from 'pages/HomePage/HomePage';
-import ContactsPage from 'pages/ContactsPage/ContactsPage';
-import AddPage from 'pages/AddPage/AddPage';
+import BuyPage from 'pages/BuyPage/BuyPage';
+import HomeElementPage from 'pages/HomeElementPage/HomeElementPage';
 import Layout from 'components/Layout/Layout';
 import Page404 from 'pages/Page404/Page404';
 import Login from 'pages/LoginPage/LoginPage';
@@ -14,6 +14,7 @@ import PrivateRoute from './PrivateRoute';
 import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 import * as ROUTES from '../constants/routes';
 import { selectAuthenticated } from 'redux/auth/auth.selectors';
+import { HomeElement } from 'components/HomeElement/HomeElement';
 
 const appRoutes = [
   {
@@ -26,11 +27,11 @@ const appRoutes = [
   },
   {
     path: ROUTES.ADD_ROUTE,
-    element: <AddPage />,
+    element: <HomeElement />,
   },
   {
     path: ROUTES.CONTACTS_ROUTE,
-    element: <ContactsPage />,
+    element: <BuyPage />,
   },
   // {
   //   path: ROUTES.REGISTER_ROUTE,
