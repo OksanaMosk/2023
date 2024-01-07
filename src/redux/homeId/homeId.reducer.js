@@ -24,22 +24,24 @@ export const fetchHomeId = createAsyncThunk(
     try {
       const zpidValue = zpid.zpid; // Отримати значення zpid з об'єкта
 
-      const apiKey = 'cba3fcb8-b398-4f21-a1c5-4f01e622210d';
+      const apiKey = 'cf115c7d-9098-4cfa-b893-92b75c68ad20';
       const stringZpid = String(zpidValue);
-      console.log('stringZpid:', stringZpid);
+      console.log('Fetching homeId with zpid:', stringZpid);
 
       const response = await axios.get(
         `${api_url}?api_key=${apiKey}&zpid=${encodeURIComponent(stringZpid)}`
       );
-      console.log('response.data.data: ', response.data.data);
+      console.log('Response data:', response.data.data);
+
       return response.data.data;
     } catch (err) {
+      console.error('Error fetching homeId:', err.message);
       return thunkApi.rejectWithValue(err.message);
     }
   }
 );
 const initialState = {
-  homeId: '',
+  homeId: {},
   isLoading: false,
   error: null,
 };

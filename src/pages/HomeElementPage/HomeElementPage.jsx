@@ -16,8 +16,8 @@ const AddPage = () => {
         Go back
       </NavLink>
       <div className={css.container}>
-        <div>
-          <HomeElement />
+        <div className={css.app}>
+          <HomeElement className={css.containerHomeElement} />
         </div>
       </div>
     </>
