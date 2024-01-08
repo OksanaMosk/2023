@@ -48,10 +48,10 @@ export const BuyList = () => {
 
   return (
     listResults.imgSrc !== null && (
-      <div className={css.contactContainer}>
-        <ul className={css.contactList}>
+      <div className={css.homeContainer}>
+        <ul className={css.homeList}>
           {listResults.map(result => (
-            <li className={css.itemContact} key={result.zpid}>
+            <li className={css.itemHome} key={result.zpid}>
               <div className={css.everyItem}>
                 {result.imgSrc && (
                   <img
@@ -102,9 +102,9 @@ export const BuyList = () => {
                     </p>
                   </div>
                   <NavLink
-                    className={css.buttonDelete}
+                    className={css.toHomeElement}
                     key={result.id}
-                    to={`/contacts/${result.id}`}
+                    to={`/buy/${result.id}`}
                   >
                     View details
                   </NavLink>

@@ -36,6 +36,7 @@ export const HomeElement = () => {
   // }
 
   console.log('HomeId after fetch:', homeId);
+
   // if (typeof homeId === 'string') {
   //   console.log('homeId- це рядок.');
   // } else {
@@ -48,55 +49,57 @@ export const HomeElement = () => {
   console.log('galery: ', galery);
 
   return (
-    <div>
-      <h2>{citySearchUrl}</h2>
-      <div className={css.aboutDetails}>
-        <p>
-          <img
-            className={css.icon}
-            src={iconBath}
-            alt="iconBath"
-            style={{ width: '20px', height: '20px' }}
-          />
-          {homeId.bedrooms}
+    typeof homeId !== 'string' && (
+      <div>
+        <h2 className={css.title}>{citySearchUrl}</h2>{' '}
+        <p className={css.address}>
+          {address.streetAddress}, {address.city}, {address.state}{' '}
+          {address.zipcode}, {homeId.country}
         </p>
-        <p>
-          <img
-            className={css.icon}
-            src={iconBed}
-            alt="iconBed"
-            style={{ width: '20px', height: '20px' }}
-          />
-          {homeId.bathrooms}
-        </p>
-        <p>
-          <img
-            className={css.icon}
-            src={iconSizeFt}
-            alt="iconSizeFt"
-            style={{ width: '20px', height: '20px' }}
-          />
-          {homeId.livingArea} sqft
-        </p>
-        <p>
-          <img
-            className={css.icon}
-            src={iconSizeM}
-            alt="iconSizeM"
-            style={{ width: '20px', height: '20px' }}
-          />
-          {(homeId.livingArea / 10.7638).toFixed(2)} m²
-        </p>
-        <p>Views: {homeId.pageViewCount}</p>
+        <div className={css.aboutDetails}>
+          <p>
+            <img
+              className={css.icon}
+              src={iconBath}
+              alt="iconBath"
+              style={{ width: '20px', height: '20px' }}
+            />
+            {homeId.bedrooms}
+          </p>
+          <p>
+            <img
+              className={css.icon}
+              src={iconBed}
+              alt="iconBed"
+              style={{ width: '20px', height: '20px' }}
+            />
+            {homeId.bathrooms}
+          </p>
+          <p>
+            <img
+              className={css.icon}
+              src={iconSizeFt}
+              alt="iconSizeFt"
+              style={{ width: '20px', height: '20px' }}
+            />
+            {homeId.livingArea} sqft
+          </p>
+          <p>
+            <img
+              className={css.icon}
+              src={iconSizeM}
+              alt="iconSizeM"
+              style={{ width: '20px', height: '20px' }}
+            />
+            {(homeId.livingArea / 10.7638).toFixed(2)} m²
+          </p>
+          <p>Views: {homeId.pageViewCount}</p>
+        </div>
+        <p className={css.price}>$ {price}</p>
+        <p className={css.published}>Published on: {homeId.datePostedString}</p>
+        <p className={css.address}>{homeId.description}</p>
+        <ImageGallery />
       </div>
-      <p>
-        {address.streetAddress}, {address.city}, {address.state}{' '}
-        {address.zipcode}, {homeId.country}
-      </p>
-      <p>$ {price}</p>
-      <p>Published on: {homeId.datePostedString}</p>
-      <p>{homeId.description}</p>
-      <ImageGallery />
-    </div>
+    )
   );
 };

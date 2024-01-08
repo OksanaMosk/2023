@@ -26,11 +26,11 @@ const appRoutes = [
     ),
   },
   {
-    path: ROUTES.ADD_ROUTE,
+    path: ROUTES.ZPID_ROUTE,
     element: <HomeElement />,
   },
   {
-    path: ROUTES.CONTACTS_ROUTE,
+    path: ROUTES.BUY_ROUTE,
     element: <BuyPage />,
   },
   // {
