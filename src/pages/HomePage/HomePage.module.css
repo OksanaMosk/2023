@@ -5,37 +5,19 @@
   justify-content: space-between;
   gap: 30px;
 }
-.homePage1,
-.homePage2 {
-  width: 32vw;
-  height: 250px;
+
+.toLinkHome {
   display: flex;
+  font-family: 'Montserrat', sans-serif;
   justify-content: center;
   align-items: center;
+  border-radius: 20px;
+
+  font-size: 16px;
+  color: #4d4c4c;
+  width: 100px;
+  height: 30px;
+  border: 1px solid #4d4c4c;
   background-color: white;
   cursor: pointer;
-  box-shadow: 10px 10px 7px 0px rgba(177, 185, 204, 0.12),
-    10px 10px 5px 0px rgba(177, 185, 204, 0.14),
-    10px 10px 5px 0px rgba(177, 185, 204, 0.12);
-
-  border: solid #777;
-  border-width: 2px 2px 2px 0;
-  color: #fff;
-  border: 1.5px solid #e6eaed;
-  border-radius: 20px;
-  line-height: 48px;
-  margin: -50px 0 0 0;
-  position: relative;
-  text-align: center;
-  -moz-transition: margin 2s;
-  -o-transition: margin 2s;
-  -webkit-transition: margin 2s;
-  transition: margin 2s;
-}
-
-.homePage1:focus,
-.homePage1:hover,
-.homePage2:focus,
-.homePage2:hover {
-  margin-top: 20px;
 }

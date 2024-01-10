@@ -29,7 +29,8 @@ export const fetchHomeId = createAsyncThunk(
       console.log('Fetching homeId with zpid:', stringZpid);
 
       const response = await axios.get(
-        `${api_url}?api_key=${apiKey}&zpid=${encodeURIComponent(stringZpid)}`
+        `${api_url}?api_key=${apiKey}&zpid=${encodeURIComponent(stringZpid)}`,
+        { timeout: 5800 }
       );
       console.log('Response data:', response.data.data);
 

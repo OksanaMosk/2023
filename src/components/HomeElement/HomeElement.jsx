@@ -42,7 +42,6 @@ export const HomeElement = () => {
   // } else {
   //   console.error('homeId- це НЕ рядок.');
   // }
-
   const citySearchUrl = homeId.citySearchUrl.text;
   const address = homeId.address;
   const price = homeId.adTargets.price;

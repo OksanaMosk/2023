@@ -1,21 +1,8 @@
 header {
   background-color: white;
-  justify-content: space-between;
-  position: relative;
   display: flex;
-  flex-wrap: wrap;
-  border: 1.5px solid #e6eaed;
-  border-radius: 20px;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  width: 70vw;
-  height: 200px;
+  justify-content: center;
   cursor: pointer;
-  box-shadow: 10px 10px 7px 0px rgba(177, 185, 204, 0.12),
-    10px 10px 5px 0px rgba(177, 185, 204, 0.14),
-    10px 10px 5px 0px rgba(177, 185, 204, 0.12);
-  object-fit: cover;
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .menu {
@@ -24,22 +11,6 @@ header {
   row-gap: 10px;
   padding-bottom: 50px;
   padding-left: 30px;
-}
-
-.mainTitle {
-  padding-top: 20px;
-  position: relative;
-  display: block;
-  text-align: center;
-  font-size: 40px;
-  color: #6e6662;
-  text-transform: uppercase;
-  width: 100%;
-  line-height: 0.7em;
-}
-.mainTitle:hover,
-.mainTitle :focus {
-  color: #7584a3;
 }
 
 .title {
