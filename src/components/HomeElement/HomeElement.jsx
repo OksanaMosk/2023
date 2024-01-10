@@ -42,6 +42,7 @@ export const HomeElement = () => {
   // } else {
   //   console.error('homeId- це НЕ рядок.');
   // }
+
   const citySearchUrl = homeId.citySearchUrl.text;
   const address = homeId.address;
   const price = homeId.adTargets.price;
@@ -50,7 +51,7 @@ export const HomeElement = () => {
 
   return (
     typeof homeId !== 'string' && (
-      <div>
+      <div className={css.homeContainer}>
         <h2 className={css.title}>{citySearchUrl}</h2>{' '}
         <p className={css.address}>
           {address.streetAddress}, {address.city}, {address.state}{' '}

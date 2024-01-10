@@ -24,7 +24,7 @@ export const fetchHomeId = createAsyncThunk(
     try {
       const zpidValue = zpid.zpid; // Отримати значення zpid з об'єкта
 
-      const apiKey = 'cf115c7d-9098-4cfa-b893-92b75c68ad20';
+      const apiKey = 'd9858d65-432a-4baf-8d1f-564ddc08c405';
       const stringZpid = String(zpidValue);
       console.log('Fetching homeId with zpid:', stringZpid);
 
