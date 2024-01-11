@@ -21,6 +21,8 @@
 
 /*  */
 .title {
+  text-align: left;
+  font-size: 36px;
   margin-block-end: 10px;
   margin-block-start: 0;
 }
@@ -63,5 +65,26 @@
   margin-inline-end: 0;
   margin: 60px 0 60px 0;
 }
-.published {
+
+.homeContainer {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 1500px;
+}
+
+.homeLeftContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  max-width: 500px;
+}
+.homeRightContainer {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  max-width: 1000px;
 }
