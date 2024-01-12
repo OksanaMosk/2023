@@ -104,7 +104,7 @@ export const HomeElement = () => {
             <p className={css.views}>Views: {homeId.pageViewCount}</p>
           </div>
           <div className={css.homeRightContainer}>
-            <ImageGallery schowIndex={true} />
+            <ImageGallery className={css.imageGallery} />
           </div>
 
           <p className={css.description}>{homeId.description}</p>
