@@ -4,7 +4,8 @@ body {
   margin: 0;
   display: flex;
   justify-content: center;
-  background-color: white;
+  background-color: #f4f4f2;
+  color: #495464;
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

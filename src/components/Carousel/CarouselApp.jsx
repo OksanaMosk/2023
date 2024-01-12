@@ -19,7 +19,7 @@ const CarouselApp = () => {
   useEffect(() => {
     dispatch(fetchHomeId({ zpid }));
   }, [zpid, dispatch]);
-  const galery = homeId.responsivePhotos.slice(0, 7);
+  const galery = homeId.responsivePhotos.slice(0, 8);
   const items = galery.map((item, index) => ({
     original: `${item.url}`,
     thumbnail: `${item.url}`,

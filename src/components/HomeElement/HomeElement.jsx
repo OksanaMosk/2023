@@ -5,6 +5,7 @@ import { selecthomeId } from 'redux/homeId/homeId.selector';
 import { useEffect } from 'react';
 import ImageGallery from '../Carousel/CarouselApp';
 import CarouselApp from '../Carousel/CarouselApp';
+import 'react-image-gallery/styles/css/image-gallery.css';
 // import LoaderSmall from 'components/Loader/LoaderSmall';
 
 import iconBath from '../images/iconBath.png';
@@ -51,9 +52,9 @@ export const HomeElement = () => {
   return (
     typeof homeId !== 'string' && (
       <>
-        <h2 className={css.title}>{citySearchUrl}</h2>
         <div className={css.homeContainer}>
           <div className={css.homeLeftContainer}>
+            <h2 className={css.title}>{citySearchUrl}</h2>
             <p className={css.address}>
               {address.streetAddress}, {address.city}, {address.state}{' '}
               {address.zipcode}, {homeId.country}
@@ -95,18 +96,18 @@ export const HomeElement = () => {
                 />
                 {(homeId.livingArea / 10.7638).toFixed(2)} m²
               </p>
-              <p>Views: {homeId.pageViewCount}</p>
             </div>
             <p className={css.price}>$ {price}</p>
             <p className={css.published}>
               Published on: {homeId.datePostedString}
             </p>
+            <p className={css.views}>Views: {homeId.pageViewCount}</p>
           </div>
           <div className={css.homeRightContainer}>
-            <ImageGallery />
+            <ImageGallery schowIndex={true} />
           </div>
 
-          <p className={css.address}>{homeId.description}</p>
+          <p className={css.description}>{homeId.description}</p>
         </div>
       </>
     )

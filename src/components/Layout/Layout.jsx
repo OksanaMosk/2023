@@ -17,7 +17,7 @@ const Layout = ({ children }) => {
   };
 
   return (
-    <div>
+    <div className={css.mainTitleContainer}>
       <header>
         <h1 className={css.mainTitle}>
           <img
