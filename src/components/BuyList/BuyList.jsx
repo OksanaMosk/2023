@@ -61,7 +61,7 @@ export const BuyList = () => {
                   />
                 )}
                 <div className={css.about}>
-                  <p className={css.price}>{result.price}</p>
+                  <p className={css.price}>{result.price.toLocaleString()}</p>
                   <p className={css.address}>{result.address}</p>
                   <div className={css.aboutDetails}>
                     <p>

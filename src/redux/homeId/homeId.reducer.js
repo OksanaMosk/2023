@@ -24,7 +24,7 @@ export const fetchHomeId = createAsyncThunk(
     try {
       const zpidValue = zpid.zpid; // Отримати значення zpid з об'єкта
 
-      const apiKey = '8725d692-cf41-49e1-aa79-4055634b609e';
+      const apiKey = 'd05c3dba-0c8b-4561-afff-6e7243dc066c';
       const stringZpid = String(zpidValue);
       console.log('Fetching homeId with zpid:', stringZpid);
 
@@ -34,7 +34,13 @@ export const fetchHomeId = createAsyncThunk(
       );
       console.log('Response data:', response.data.data);
 
-      return response.data.data;
+      if (response.status === 200) {
+        console.log('Response data:', response.data.data);
+        return response.data.data;
+      } else {
+        console.error('Non-200 status code:', response.status);
+        return thunkApi.rejectWithValue('Non-200 status code');
+      }
     } catch (err) {
       console.error('Error fetching homeId:', err.message);
       return thunkApi.rejectWithValue(err.message);
