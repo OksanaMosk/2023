@@ -27,25 +27,6 @@ export const BuyList = () => {
     dispatch(fetchHome());
   }, [dispatch]);
 
-  // const removeContact = contactId => {
-  //   dispatch(deleteContacts(contactId));
-  //   new Audio(mpDelete).play();
-  // };
-
-  // const visibleContacts = () => {
-  //   return home.filter(contact =>
-  //    home.name
-  //       .toString()
-  //       .toLowerCase()
-  //       .includes(filterTerm.toString().toLowerCase())
-  //   );
-  // };
-
-  // const visContacts = visibleContacts();
-  // const sorted = [...visContacts].sort((a, b) =>
-  //   a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
-  // );
-
   return (
     listResults.imgSrc !== null && (
       <div className={css.homeContainer}>
@@ -62,7 +43,16 @@ export const BuyList = () => {
                 )}
                 <div className={css.about}>
                   <p className={css.price}>{result.price.toLocaleString()}</p>
-                  <p className={css.address}>{result.address}</p>
+                  <p
+                    className={css.address}
+                    style={{
+                      whiteSpace: 'pre-wrap',
+                      maxWidth: '30ch',
+                      overflowWrap: 'break-word',
+                    }}
+                  >
+                    {result.address.replace(/,([^,]{0,10})$/, ',\u00A0$1')}
+                  </p>
                   <div className={css.aboutDetails}>
                     <p>
                       <img
@@ -134,3 +124,21 @@ export const BuyList = () => {
     )
   );
 };
+// const removeContact = contactId => {
+//   dispatch(deleteContacts(contactId));
+//   new Audio(mpDelete).play();
+// };
+
+// const visibleContacts = () => {
+//   return home.filter(contact =>
+//    home.name
+//       .toString()
+//       .toLowerCase()
+//       .includes(filterTerm.toString().toLowerCase())
+//   );
+// };
+
+// const visContacts = visibleContacts();
+// const sorted = [...visContacts].sort((a, b) =>
+//   a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
+// );

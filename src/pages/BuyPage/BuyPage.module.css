@@ -1,32 +1,26 @@
+.buyContainer {
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: center;
+  gap: 30px;
+}
+
+.filter {
+}
 .contacts {
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 30px;
-}
 
-.noContacts {
-  padding-top: 20px;
-  color: #6e6662;
-  font-size: 36px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
+  flex-wrap: nowrap;
 
-.noContacts:hover,
-.noContacts:focus {
-  color: #e6eaed;
+  flex-direction: row;
+  row-gap: 30px;
+  justify-content: center;
 }
 
 .goBack {
   position: fixed;
-  top: 100px;
+  top: 65px;
   left: 5px;
   display: inline-flex;
   text-decoration: none;
@@ -49,10 +43,10 @@
   background-color: #b1b9cc;
   color: #af9e8e;
 }
-.loader {
+/* .loader {
   display: flex;
   text-align: center;
   justify-content: center;
   align-items: center;
   margin: 0, auto;
-}
+} */

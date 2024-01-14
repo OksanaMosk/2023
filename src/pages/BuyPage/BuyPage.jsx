@@ -17,26 +17,23 @@ const BuyPage = () => {
   const backLinkRef = useRef(location.state?.from ?? '/');
 
   return (
-    <div className={css.contacts}>
-      <BuyList />
-      {/* {error !== null && <Navigate to="/contacts/404" replace={true} />} */}
-      <NavLink
-        state={{ from: location }}
-        className={css.goBack}
-        to={backLinkRef.current}
-      >
-        Go back
-      </NavLink>
-      {isLoading && <Loader />}
-      {/* {homes.length !== 0 ? ( */}
-      <>
-        <Filter />
-        {/* 
-        <ContactList /> */}
-      </>
-      {/* ) : ( */}
-
-      {/* )} */}
+    <div className={css.buyContainer}>
+      <Filter className={css.filter} />
+      <div className={css.contacts}>
+        <BuyList />
+        {/* {error !== null && <Navigate to="/contacts/404" replace={true} />} */}
+        <NavLink
+          state={{ from: location }}
+          className={css.goBack}
+          to={backLinkRef.current}
+        >
+          Go back
+        </NavLink>
+        {isLoading && <Loader />}
+        {/* {homes.length !== 0 ? ( */}
+        {/* ) : ( */}
+        {/* )} */}
+      </div>
     </div>
   );
 };

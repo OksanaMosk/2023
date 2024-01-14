@@ -15,12 +15,13 @@ export default function Filter({ value }) {
   return (
     <form className={css.formlFind}>
       <label className={css.labelFind}>
-        Find contacts by name
+        Find address
         <input
           className={css.inputFind}
           type="text"
           value={filterTerm}
           onChange={changeFilter}
+          placeholder="City, Neighborhood, ZIP, Address"
         />
       </label>
     </form>
