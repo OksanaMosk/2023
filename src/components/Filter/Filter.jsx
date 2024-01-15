@@ -1,46 +1,45 @@
-import React from 'react';
-// import { setFilterTerm } from 'redux/filter/filter.reducer';
-import { selectFilterTerm } from 'redux/filter/filter.selector';
+import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { filterHome } from 'redux/filter/filter.reducer';
 
-import {
-  filterReducer as filterResults,
-  filterHome,
-} from 'redux/filter/filter.reducer';
 import css from './Filter.module.css';
-import { useEffect } from 'react';
 
-export default function Filter({ value }) {
-  const filterTerm = useSelector(selectFilterTerm);
-  // const isLoading = useSelector(state => state.filterResults.isLoading);
-  // const error = useSelector(state => state.filterResults.error);
+export default function Filter() {
   const dispatch = useDispatch();
+  const formRef = useRef(null);
 
-  const changeFilter = event => {
-    const searchTerm = event.target.value;
-    console.log('searchTerm: ', searchTerm);
-    dispatch(filterHome(searchTerm));
+  const onFormSubmit = e => {
+    e.preventDefault();
+    const value = e.currentTarget.elements.searchKey.value;
+    dispatch(filterHome(value));
+    e.target.reset();
   };
 
-  // useEffect(() => {
-  //   dispatch(filterHome());
-  // }, [dispatch]);
-  const displayValue = filterTerm
-    .map(obj => Object.values(obj).join(', '))
-    .join(', ');
+  const handleKeyDown = e => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const form = e.target.closest('form');
+      dispatch(filterHome(e.target.value));
+      form.reset();
+    }
+  };
 
   return (
-    <form className={css.formlFind}>
+    <form className={css.formlFind} onSubmit={onFormSubmit}>
       <label className={css.labelFind}>
-        Find address
+        Search address
         <input
           className={css.inputFind}
           type="text"
-          value={displayValue}
-          onChange={changeFilter}
-          placeholder="City, Neighborhood, ZIP, Address"
+          name="searchKey"
+          placeholder="City, District, ZIP, Address"
+          onKeyDown={handleKeyDown}
         />
       </label>
+      <button className={css.inputButton} type="submit">
+        <span className={css.buttonLabel}></span>
+        &#128269;
+      </button>
     </form>
   );
 }

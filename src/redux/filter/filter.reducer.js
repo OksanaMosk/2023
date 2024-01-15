@@ -6,14 +6,15 @@ const api_url =
 export const filterHome = createAsyncThunk(
   'homes/filter',
 
-  async (searchTerm, thunkApi) => {
+  async (queryValue, thunkApi) => {
     try {
-      const apiKey = '8e0d683c-fe09-46a5-a361-fb043ba8bff0';
-      const encodedSearchTerm = encodeURIComponent(searchTerm);
+      const apiKey = '01377c66-f4d3-43ae-be2f-54d5a39c9277';
 
       const { data } = await axios.get(
-        `${api_url}?api_key=${apiKey}&q=${encodedSearchTerm}`
+        `${api_url}?api_key=${apiKey}&q=${queryValue}`
       );
+      console.log('Server Response:', data);
+
       console.log('data.data.results: ', data.data.results);
       return data.data.results;
     } catch (err) {
@@ -29,7 +30,7 @@ const initialState = {
 };
 
 const filterSlice = createSlice({
-  name: ' filterTerm',
+  name: ' filter',
   initialState,
   extraReducers: builder =>
     builder
@@ -47,5 +48,5 @@ const filterSlice = createSlice({
         state.error = payload;
       }),
 });
-// export const { setFilterTerm } = filterSlice.actions;
+export const { setFilterTerm } = filterSlice.actions;
 export const filterReducer = filterSlice.reducer;
