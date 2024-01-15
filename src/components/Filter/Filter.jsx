@@ -1,16 +1,33 @@
 import React from 'react';
-import { setFilterTerm } from 'redux/filter/filter.reducer';
+// import { setFilterTerm } from 'redux/filter/filter.reducer';
 import { selectFilterTerm } from 'redux/filter/filter.selector';
 import { useDispatch, useSelector } from 'react-redux';
 
+import {
+  filterReducer as filterResults,
+  filterHome,
+} from 'redux/filter/filter.reducer';
 import css from './Filter.module.css';
+import { useEffect } from 'react';
 
 export default function Filter({ value }) {
   const filterTerm = useSelector(selectFilterTerm);
+  // const isLoading = useSelector(state => state.filterResults.isLoading);
+  // const error = useSelector(state => state.filterResults.error);
   const dispatch = useDispatch();
+
   const changeFilter = event => {
-    dispatch(setFilterTerm(event.target.value));
+    const searchTerm = event.target.value;
+    console.log('searchTerm: ', searchTerm);
+    dispatch(filterHome(searchTerm));
   };
+
+  // useEffect(() => {
+  //   dispatch(filterHome());
+  // }, [dispatch]);
+  const displayValue = filterTerm
+    .map(obj => Object.values(obj).join(', '))
+    .join(', ');
 
   return (
     <form className={css.formlFind}>
@@ -19,7 +36,7 @@ export default function Filter({ value }) {
         <input
           className={css.inputFind}
           type="text"
-          value={filterTerm}
+          value={displayValue}
           onChange={changeFilter}
           placeholder="City, Neighborhood, ZIP, Address"
         />

@@ -47,7 +47,7 @@ export const BuyList = () => {
                     className={css.address}
                     style={{
                       whiteSpace: 'pre-wrap',
-                      maxWidth: '30ch',
+                      maxWidth: '25ch',
                       overflowWrap: 'break-word',
                     }}
                   >

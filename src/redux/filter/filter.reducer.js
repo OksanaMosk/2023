@@ -1,18 +1,51 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice, isAnyOf } from '@reduxjs/toolkit';
+import axios from 'axios';
+const api_url =
+  'https://app.scrapeak.com/v1/scrapers/zillow/locationSuggestions';
+
+export const filterHome = createAsyncThunk(
+  'homes/filter',
+
+  async (searchTerm, thunkApi) => {
+    try {
+      const apiKey = '8e0d683c-fe09-46a5-a361-fb043ba8bff0';
+      const encodedSearchTerm = encodeURIComponent(searchTerm);
+
+      const { data } = await axios.get(
+        `${api_url}?api_key=${apiKey}&q=${encodedSearchTerm}`
+      );
+      console.log('data.data.results: ', data.data.results);
+      return data.data.results;
+    } catch (err) {
+      return thunkApi.rejectWithValue(err.message);
+    }
+  }
+);
 
 const initialState = {
-  filterTerm: '',
+  filterTerm: [],
+  isLoading: false,
+  error: null,
 };
 
 const filterSlice = createSlice({
-  name: 'filter',
+  name: ' filterTerm',
   initialState,
-  reducers: {
-    setFilterTerm(state, { payload }) {
-      state.filterTerm = payload;
-    },
-  },
+  extraReducers: builder =>
+    builder
+      .addCase(filterHome.fulfilled, (state, { payload }) => {
+        state.filterTerm = payload;
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addMatcher(isAnyOf(filterHome.pending), state => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addMatcher(isAnyOf(filterHome.rejected), (state, { payload }) => {
+        state.isLoading = false;
+        state.error = payload;
+      }),
 });
-
-export const { setFilterTerm } = filterSlice.actions;
+// export const { setFilterTerm } = filterSlice.actions;
 export const filterReducer = filterSlice.reducer;
