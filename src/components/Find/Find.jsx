@@ -1,16 +1,16 @@
 import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { filterHome } from 'redux/filter/filter.reducer';
+import { findHome } from 'redux/find/find.reducer';
 
-import css from './Filter.module.css';
+import css from './Find.module.css';
 
-export default function Filter() {
+export default function Find() {
   const dispatch = useDispatch();
 
   const onFormSubmit = e => {
     e.preventDefault();
     const value = e.currentTarget.elements.searchKey.value;
-    dispatch(filterHome(value));
+    dispatch(findHome(value));
 
     e.target.reset();
   };
@@ -19,7 +19,7 @@ export default function Filter() {
     if (e.key === 'Enter') {
       e.preventDefault();
       const form = e.target.closest('form');
-      dispatch(filterHome(e.target.value));
+      dispatch(findHome(e.target.value));
       form.reset();
     }
   };

@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { selecthomeId } from 'redux/homeId/homeId.selector';
 import { useEffect } from 'react';
 import ImageGallery from '../Carousel/CarouselApp';
-import CarouselApp from '../Carousel/CarouselApp';
+import Filter from 'components/Filter/Filter';
 import 'react-image-gallery/styles/css/image-gallery.css';
 // import LoaderSmall from 'components/Loader/LoaderSmall';
 
@@ -148,6 +148,7 @@ export const HomeElement = () => {
             className={css.description}
             description={homeId.description}
           />
+          <Filter />
         </div>
       </>
     )

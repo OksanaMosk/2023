@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { BuyList } from 'components/BuyList/BuyList';
 import { useLocation } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
-import Filter from 'components/Filter/Filter';
+import Find from 'components/Find/Find';
 import Loader from 'components/Loader/Loader';
 import { useRef } from 'react';
 
@@ -18,7 +18,7 @@ const BuyPage = () => {
 
   return (
     <div className={css.buyContainer}>
-      <Filter className={css.filter} />
+      <Find className={css.find} />
       <div className={css.contacts}>
         <BuyList />
         {/* {error !== null && <Navigate to="/contacts/404" replace={true} />} */}
