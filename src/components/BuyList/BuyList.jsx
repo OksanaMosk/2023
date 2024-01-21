@@ -3,16 +3,18 @@ import { fetchHome } from 'redux/contacts/contacts.reducer';
 
 import { selectContacts } from 'redux/contacts/contacts.selector';
 // import { selectFilterTerm } from 'redux/filter/filter.selector';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import LoaderSmall from 'components/Loader/LoaderSmall';
 import iconBath from '../images/iconBath.png';
 import iconBed from '../images/iconBed.png';
 import iconSizeFt from '../images/iconSizeFt.png';
 import iconSizeM from '../images/iconSizeM.png';
 import { NavLink } from 'react-router-dom';
+import { CurrentLocationMarker } from '../CurrentLocationMarker';
+
 import css from './BuyList.module.css';
 
-export const BuyList = () => {
+export const BuyList = ({ setSelectedMarker }) => {
   const listResults = useSelector(selectContacts);
   // const zpid = useParams();
   const isLoading = useSelector(state => state.contactsStore.isLoading);
@@ -95,6 +97,7 @@ export const BuyList = () => {
                     className={css.toHomeElement}
                     key={result.id}
                     to={`/buy/${result.id}`}
+                    onClick={() => setSelectedMarker(result)}
                   >
                     View details
                   </NavLink>

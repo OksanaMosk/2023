@@ -1,76 +1,168 @@
-// import React, { useRef, useState, useEffect } from 'react';
-// import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
-// import google from 'google';
-// import { Wrapper, Status } from '@googlemaps/react-wrapper';
-// // AIzaSyDCN8HpJpVmaMjrMD0HeabkH__0jWuxzGU;
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-// export default function MapComponent() {
-//   apiKey: 'AIzaSyDCN8HpJpVmaMjrMD0HeabkH__0jWuxzGU';
-//   const ref = React.useRef(null);
-//   const [map, setMap] = React.useState();
-//   const [clicks, setClicks] = React.useState([]);
-//   const [zoom, setZoom] = React.useState(3); // initial zoom
-//   const [center, setCenter] = React.useState({
-//     lat: 0,
-//     lng: 0,
-//   });
-//   const Map: React.FC<{}> = () => {};
-//   const render = (status: Status) => {
-//     return <h1>{status}</h1>;
-//   };
-//   const onClick = e => {
-//     // avoid directly mutating state
-//     setClicks([...clicks, e.latLng]);
-//   };
+import { selectContacts } from 'redux/contacts/contacts.selector';
 
-//   const onIdle = m => {
-//     console.log('onIdle');
-//     setZoom(m.getZoom());
-//     setCenter(m.getCenter().toJSON());
-//   };
-//   React.useEffect(() => {
-//     if (ref.current && !map) {
-//       setMap(new window.google.maps.Map(ref.current, {}));
-//     }
-//   }, [ref, map]);
-//   React.useEffect(() => {
-//     if (map) {
-//       ['click', 'idle'].forEach(eventName =>
-//         google.maps.event.clearListeners(map, eventName)
-//       );
-//       if (onClick) {
-//         map.addListener('click', onClick);
-//       }
+import { GoogleMap, InfoWindow } from '@react-google-maps/api';
+import { CurrentLocationMarker } from '../CurrentLocationMarker';
+import { fetchHome } from 'redux/contacts/contacts.reducer';
+import { HomeElement } from 'components/HomeElement/HomeElement';
+import iconBath from '../images/iconBath.png';
+import iconBed from '../images/iconBed.png';
+import iconSizeFt from '../images/iconSizeFt.png';
+import iconSizeM from '../images/iconSizeM.png';
+import { NavLink } from 'react-router-dom';
 
-//       if (onIdle) {
-//         map.addListener('idle', () => onIdle(map));
-//       }
-//     }
-//   }, [map, onClick, onIdle]);
+import css from './Map.module.css';
 
-//   const Marker = options => {
-//     const [marker, setMarker] = React.useState();
+const containerStyle = {
+  width: '100%',
+  height: '100%',
+};
+const defaultOptions = {
+  panControl: true,
+  zoomControl: true,
+  mapTypeControl: true,
+  scaleControl: false,
+  streetViewControl: false,
+  rotateControl: true,
+  clickableIcons: false,
+  keyboardShortcuts: false,
+  scrollwheel: true,
+  disableDoubleClickZoom: false,
+  fullscreenContron: false,
+};
 
-//     React.useEffect(() => {
-//       if (!marker) {
-//         setMarker(new google.maps.Marker());
-//       }
+const Map = ({ center }) => {
+  const listResults = useSelector(selectContacts);
+  const dispatch = useDispatch();
+  const mapRef = React.useRef(undefined);
+  const [selectedMarker, setSelectedMarker] = useState(null);
 
-//       // remove marker from map on unmount
-//       return () => {
-//         if (marker) {
-//           marker.setMap(null);
-//         }
-//       };
-//     }, [marker]);
-//     React.useEffect(() => {
-//       if (marker) {
-//         marker.setOptions(options);
-//       }
-//     }, [marker, options]);
-//     return null;
-//   };
-//   //   <Wrapper apiKey={'AIzaSyDCN8HpJpVmaMjrMD0HeabkH__0jWuxzGU'} render={render}>
-//   //     <MapComponent />
-//   //   </Wrapper>;
-// }
+  const onLoad = React.useCallback(function callback(map) {
+    mapRef.current = map;
+  }, []);
+
+  const onUnmount = React.useCallback(function callback() {
+    mapRef.current = undefined;
+  }, []);
+
+  React.useEffect(() => {
+    dispatch(fetchHome());
+  }, [dispatch]);
+
+  const renderInfoWindowContent = marker => (
+    <div className={css.everyItem} key={marker.zpid}>
+      {marker.imgSrc && (
+        <img
+          className={css.everyItemImg}
+          src={marker.imgSrc}
+          alt={`House ${marker.zpid}`}
+          style={{ width: 'auto', maxHeight: '100px' }}
+        />
+      )}
+      <div className={css.about}>
+        <p className={css.price}>{marker.price.toLocaleString()}</p>
+        <p
+          className={css.address}
+          style={{
+            whiteSpace: 'pre-wrap',
+            maxWidth: '23ch',
+            overflowWrap: 'break-word',
+          }}
+        >
+          {marker.address.replace(/,([^,]{0,10})$/, ',\u00A0$1')}
+        </p>
+        <div className={css.aboutDetails}>
+          <p>
+            <img
+              className={css.icon}
+              src={iconBath}
+              alt="iconBath"
+              style={{ width: '15px', height: '15px' }}
+            />
+            {marker.beds}
+          </p>
+          <p>
+            <img
+              className={css.icon}
+              src={iconBed}
+              alt="iconBed"
+              style={{ width: '15px', height: '15px' }}
+            />
+            {marker.baths}
+          </p>
+          <p>
+            <img
+              className={css.icon}
+              src={iconSizeFt}
+              alt="iconSizeFt"
+              style={{ width: '15px', height: '15px' }}
+            />
+            {marker.area} sqft
+          </p>
+          <p>
+            <img
+              className={css.icon}
+              src={iconSizeM}
+              alt="iconSizeM"
+              style={{ width: '15px', height: '15px' }}
+            />
+            {(marker.area / 10.7638).toFixed(2)} m²
+          </p>
+        </div>
+        <NavLink
+          className={css.toHomeElement}
+          key={marker.id}
+          to={`/buy/${marker.id}`}
+          onClick={() => setSelectedMarker(marker)}
+        >
+          View details
+        </NavLink>
+      </div>
+    </div>
+  );
+
+  return (
+    <div className={css.container}>
+      <GoogleMap
+        className={css.googleMap}
+        mapContainerStyle={containerStyle}
+        center={center}
+        zoom={10}
+        onLoad={onLoad}
+        onUnmount={onUnmount}
+        options={defaultOptions}
+      >
+        {listResults.length
+          ? listResults.map(result => (
+              <CurrentLocationMarker
+                key={result.zpid}
+                position={{
+                  lat: result.latLong.latitude,
+                  lng: result.latLong.longitude,
+                }}
+                onClick={() => setSelectedMarker(result)}
+                zpid={result.zpid}
+              />
+            ))
+          : null}
+        {selectedMarker?.zpid && (
+          <InfoWindow
+            position={{
+              lat: selectedMarker.latLong.latitude,
+              lng: selectedMarker.latLong.longitude,
+            }}
+            onCloseClick={() => setSelectedMarker(null)}
+          >
+            <div className={css.itemHome}>
+              {renderInfoWindowContent(selectedMarker)}
+            </div>
+          </InfoWindow>
+        )}
+      </GoogleMap>
+    </div>
+  );
+};
+
+export { Map };
