@@ -4,9 +4,10 @@ import usePlacesAutocomplete, {
   getLatLng,
 } from 'use-places-autocomplete';
 import useOnclickOutside from 'react-cool-onclickoutside';
+import { fetchHome } from 'redux/contacts/contacts.reducer';
+import axios from 'axios';
 
 import css from './Autocomplete.module.css';
-import { useEffect } from 'react';
 
 export const Autocomplete = ({ isLoaded, onSelect }) => {
   const {
@@ -20,34 +21,37 @@ export const Autocomplete = ({ isLoaded, onSelect }) => {
     initOnMount: false,
     debounce: 300,
   });
+
   const ref = useOnclickOutside(() => {
     clearSuggestions();
   });
 
   const handleInput = e => {
-    // Update the keyword of the input element
     setValue(e.target.value);
   };
 
-  const handleSelect =
-    ({ description }) =>
-    () => {
-      // When the user selects a place, we can replace the keyword without request data from API
-      // by setting the second parameter to "false"
-      setValue(description, false);
-      clearSuggestions();
-      console.log(description);
+  const handleSelect = async ({ description }) => {
+    setValue(description, false);
+    clearSuggestions();
+    try {
+      const results = await getGeocode({ address: description });
+      const { lat, lng } = await getLatLng(results[0]);
+      console.log('📍 Coordinates: ', { lat, lng });
+      onSelect({ lat, lng });
 
-      getGeocode({ address: description })
-        .then(results => getLatLng(results[0]))
-        .then(({ lat, lng }) => {
-          console.log('📍 Coordinates: ', { lat, lng });
-          onSelect({ lat, lng });
-        })
-        .catch(error => {
-          console.log('Error: ', error);
-        });
-    };
+      // Call fetchData with dynamically obtained coordinates
+      const cityCoordinates = {
+        north: lat + 1,
+        south: lat - 1,
+        east: lng + 1,
+        west: lng - 1,
+      };
+      const data = await fetchHome(cityCoordinates);
+      console.log('Fetched Data: ', data);
+    } catch (error) {
+      console.log('Error: ', error);
+    }
+  };
 
   const renderSuggestions = () =>
     data.map(suggestion => {
@@ -60,7 +64,7 @@ export const Autocomplete = ({ isLoaded, onSelect }) => {
         <li
           className={css.listItem}
           key={place_id}
-          onClick={handleSelect(suggestion)}
+          onClick={() => handleSelect(suggestion)}
         >
           <strong>{main_text}</strong> <small>{secondary_text}</small>
         </li>

@@ -36,17 +36,32 @@ const BuyPage = () => {
     libraries,
   });
 
-  const onPlaceSelect = React.useCallback(coordinates => {
-    setCenter(coordinates);
+  const onPlaceSelect = React.useCallback(async coordinates => {
+    if (coordinates) {
+      setCenter(coordinates);
+    } else {
+      try {
+        const browserLocation = await getBrowserLocation();
+        setCenter(browserLocation);
+      } catch (error) {
+        console.error('Failed to get browser location:', error);
+        // Тут ви можете вирішити, якщо не вдається отримати місцезнаходження.
+      }
+    }
   }, []);
 
   React.useEffect(() => {
+    console.log('Before getBrowserLocation call');
     getBrowserLocation()
       .then(curLoc => {
+        console.log('Browser Location:', curLoc); // Додано виведення координат
         setCenter(curLoc);
       })
       .catch(defaultLocation => {
         setCenter(defaultLocation);
+      })
+      .finally(() => {
+        console.log('After getBrowserLocation call');
       });
   }, []);
 
