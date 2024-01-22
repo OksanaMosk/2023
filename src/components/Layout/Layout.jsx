@@ -19,14 +19,33 @@ const Layout = ({ children }) => {
   return (
     <div className={css.mainTitleContainer}>
       <header>
-        <h1 className={css.mainTitle}>
-          <img
-            src={zillow}
-            alt="zillow"
-            style={{ width: '40px', height: '40px' }}
-          />
-          Realestate
-        </h1>
+        <div className={css.links}>
+          <NavLink
+            className={css.toLink}
+            // state={{ from: location }}
+            to="/buy"
+          >
+            buy
+          </NavLink>
+          <NavLink
+            className={css.toLink}
+            // state={{ from: location }}
+            to="/rent"
+          >
+            rent
+          </NavLink>
+        </div>
+        <div className={css.mainTit}>
+          <h1 className={css.mainTitle}>
+            <img
+              src={zillow}
+              alt="zillow"
+              style={{ width: '40px', height: '40px' }}
+            />
+            Realestate
+          </h1>
+        </div>
+
         {/* {authenticated ? (
           <>
             <div className={css.menu}>
@@ -71,6 +90,7 @@ const Layout = ({ children }) => {
           </div>
         )} */}
       </header>
+
       <main>{children}</main>
     </div>
   );

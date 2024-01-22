@@ -6,8 +6,21 @@ import { NavLink } from 'react-router-dom';
 import Find from 'components/Find/Find';
 import Loader from 'components/Loader/Loader';
 import { useRef } from 'react';
+import { Map } from 'components/Map';
+import { Autocomplete } from 'components/Autocomplete';
+import { getBrowserLocation } from 'utils/geo';
+import { useJsApiLoader } from '@react-google-maps/api';
 
 import css from './BuyPage.module.css';
+const API_KEY = process.env.REACT_APP_API_KEY;
+console.log('API_KEY: ', API_KEY);
+
+const defaultCenter = {
+  lat: 25.761681,
+  lng: -80.191788,
+};
+
+const libraries = ['places'];
 
 const BuyPage = () => {
   //   const listResults = useSelector(state => state.contactsStore.listResults);
@@ -16,24 +29,54 @@ const BuyPage = () => {
   const location = useLocation();
   const backLinkRef = useRef(location.state?.from ?? '/');
 
+  const [center, setCenter] = React.useState(defaultCenter);
+  const { isLoaded } = useJsApiLoader({
+    id: 'google-map-script',
+    googleMapsApiKey: API_KEY,
+    libraries,
+  });
+
+  const onPlaceSelect = React.useCallback(coordinates => {
+    setCenter(coordinates);
+  }, []);
+
+  React.useEffect(() => {
+    getBrowserLocation()
+      .then(curLoc => {
+        setCenter(curLoc);
+      })
+      .catch(defaultLocation => {
+        setCenter(defaultLocation);
+      });
+  }, []);
+
   return (
     <div className={css.buyContainer}>
-      <Find className={css.find} />
-      <div className={css.contacts}>
-        <BuyList />
-        {/* {error !== null && <Navigate to="/contacts/404" replace={true} />} */}
-        <NavLink
-          state={{ from: location }}
-          className={css.goBack}
-          to={backLinkRef.current}
-        >
-          Go back
-        </NavLink>
-        {isLoading && <Loader />}
-        {/* {homes.length !== 0 ? ( */}
-        {/* ) : ( */}
-        {/* )} */}
+      <div className={css.mapContainer}>
+        <div className={css.addressSearchContainer}>
+          <Autocomplete isLoaded={isLoaded} onSelect={onPlaceSelect} />
+        </div>
+        {isLoaded && window.google && window.google.maps ? (
+          <Map center={center} />
+        ) : (
+          <h2 className={css.isLoading}>Loading...</h2>
+        )}
       </div>
+      <div className={css.contacts}></div>
+
+      <BuyList />
+      {/* {error !== null && <Navigate to="/contacts/404" replace={true} />} */}
+      <NavLink
+        state={{ from: location }}
+        className={css.goBack}
+        to={backLinkRef.current}
+      >
+        Go back
+      </NavLink>
+      {isLoading && <Loader />}
+      {/* {homes.length !== 0 ? ( */}
+      {/* ) : ( */}
+      {/* )} */}
     </div>
   );
 };

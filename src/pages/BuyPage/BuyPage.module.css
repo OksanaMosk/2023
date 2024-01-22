@@ -1,18 +1,13 @@
 .buyContainer {
   display: flex;
   flex-wrap: wrap;
-
-  justify-content: center;
-  gap: 30px;
+  gap: 50px;
+  justify-content: space-evenly;
 }
 
-.find {
-}
 .contacts {
   display: flex;
-
   flex-wrap: nowrap;
-
   flex-direction: row;
   row-gap: 30px;
   justify-content: center;
@@ -20,7 +15,7 @@
 
 .goBack {
   position: fixed;
-  top: 65px;
+  top: 70px;
   left: 5px;
   display: inline-flex;
   text-decoration: none;
@@ -50,3 +45,15 @@
   align-items: center;
   margin: 0, auto;
 } */
+
+.mapContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.addressSearchContainer {
+  max-width: 350px;
+  margin: 100px 0 40px;
+  z-index: 10;
+}

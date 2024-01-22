@@ -7,7 +7,7 @@ export const fetchHome = createAsyncThunk(
 
   async (_, thunkApi) => {
     try {
-      const apiKey = 'fa5c3908-3b71-4a18-8d23-06fae79d3e1a';
+      const apiKey = 'b457ae36-3036-4da1-8020-480ab83c7b21';
       const { data } = await axios.get(
         `${api_url}?api_key=${apiKey}&url=https://www.zillow.com/ miami-fl/?searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A25.788222075074618%2C%22south%22%3A25.661720324138102%2C%22east%22%3A-80.36129951477051%2C%22west%22%3A-80.56214332580566%7D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%2C%22ah%22%3A%7B%22value%22%3Atrue%7D%7D%2C%22isListVisible%22%3Atrue%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A12700%2C%22regionType%22%3A6%7D%5D%2C%22pagination%22%3A%7B%7D%2C%22mapZoom%22%3A6%7D`
       );

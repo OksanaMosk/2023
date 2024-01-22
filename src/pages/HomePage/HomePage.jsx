@@ -48,34 +48,10 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className={css.home}>
+    <div>
       {/* {isLoadingAuth ? ( */}
       {/* <Loader /> */}
       {/* ) : ( */}
-      <>
-        <NavLink
-          className={css.toLinkHome}
-          // state={{ from: location }}
-          to="/buy"
-        >
-          buy
-        </NavLink>
-        <NavLink
-          className={css.toLinkHome}
-          // state={{ from: location }}
-          to="/rent"
-        >
-          rent
-        </NavLink>
-      </>
-      <div className={css.addressSearchContainer}>
-        <Autocomplete isLoaded={isLoaded} onSelect={onPlaceSelect} />
-      </div>
-      {isLoaded && window.google && window.google.maps ? (
-        <Map center={center} />
-      ) : (
-        <h2 className={css.isLoading}>Loading...</h2>
-      )}
     </div>
   );
 };

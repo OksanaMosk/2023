@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { selectContacts } from 'redux/contacts/contacts.selector';
-
 import { GoogleMap, InfoWindow } from '@react-google-maps/api';
 import { CurrentLocationMarker } from '../CurrentLocationMarker';
 import { fetchHome } from 'redux/contacts/contacts.reducer';
-import { HomeElement } from 'components/HomeElement/HomeElement';
+import { NavLink } from 'react-router-dom';
+
 import iconBath from '../images/iconBath.png';
 import iconBed from '../images/iconBed.png';
 import iconSizeFt from '../images/iconSizeFt.png';
 import iconSizeM from '../images/iconSizeM.png';
-import { NavLink } from 'react-router-dom';
 
 import css from './Map.module.css';
 
