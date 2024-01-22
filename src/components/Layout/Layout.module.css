@@ -1,5 +1,5 @@
 header {
-  background-color: #bbbfca;
+  background-color: white;
   color: #495464;
   display: flex;
   justify-content: center;
@@ -144,6 +144,7 @@ header {
   flex-direction: row;
   width: 40vw;
   gap: 30px;
+  color: #495464;
 }
 
 .toLink {
@@ -152,11 +153,14 @@ header {
   justify-content: flex-start;
   align-items: center;
   border-radius: 10px;
-  font-size: 16px;
-  color: white;
+  font-size: 18px;
   text-decoration: none;
   text-transform: capitalize;
-  font-weight: 600;
 
   cursor: pointer;
+}
+.toLink:hover,
+.toLink:focus {
+  color: #495464;
+  font-weight: 600;
 }
