@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchHome } from 'redux/buy/buy.reducer';
+import { fetchRentHome } from 'redux/rent/rent.reducer';
 
-import { selectBuy } from 'redux/buy/buy.selector';
+import { selectRent } from 'redux/rent/rent.selector';
 // import { selectFilterTerm } from 'redux/filter/filter.selector';
 import { useEffect, useState } from 'react';
 import LoaderSmall from 'components/Loader/LoaderSmall';
@@ -12,13 +12,13 @@ import iconSizeM from '../images/iconSizeM.png';
 import { NavLink } from 'react-router-dom';
 import { CurrentLocationMarker } from '../CurrentLocationMarker';
 
-import css from './BuyList.module.css';
+import css from './RentList.module.css';
 
-export const BuyList = ({ setSelectedMarker }) => {
-  const listResults = useSelector(selectBuy);
+export const RentList = ({ setSelectedMarker }) => {
+  const listResults = useSelector(selectRent);
   // const zpid = useParams();
-  const isLoading = useSelector(state => state.buyStore.isLoading);
-  const error = useSelector(state => state.buyStore.error);
+  const isLoading = useSelector(state => state.rentStore.isLoading);
+  const error = useSelector(state => state.rentStore.error);
   // const filterTerm = useSelector(selectFilterTerm);
 
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ export const BuyList = ({ setSelectedMarker }) => {
   console.log('listResults', listResults);
 
   useEffect(() => {
-    dispatch(fetchHome());
+    dispatch(fetchRentHome());
   }, [dispatch]);
 
   return (
@@ -44,7 +44,7 @@ export const BuyList = ({ setSelectedMarker }) => {
                   />
                 )}
                 <div className={css.about}>
-                  <p className={css.price}>{result.price.toLocaleString()}</p>
+                  {/* <p className={css.price}>{result.price.toLocaleString()}</p> */}
                   <p
                     className={css.address}
                     style={{
@@ -96,7 +96,7 @@ export const BuyList = ({ setSelectedMarker }) => {
                   <NavLink
                     className={css.toHomeElement}
                     key={result.id}
-                    to={`/buy/${result.id}`}
+                    to={`/rent/${result.id}`}
                     onClick={() => setSelectedMarker(result)}
                   >
                     View details
@@ -108,40 +108,8 @@ export const BuyList = ({ setSelectedMarker }) => {
               </div>
             </li>
           ))}
-
-          {/* {Array.isArray(listResults) &&
-            listResults.length > 0 &&
-            listResults.map(result => (
-              <HomeElement
-                key={result.id}
-                price={result.price}
-                img={result.imgSrc}
-                address={result.address}
-                beds={result.beds}
-                baths={result.baths}
-                area={result.area} */}
-          {/* // onRemoveContact={removeContact} */}
-          {/* /> ))} */}
         </ul>
       </div>
     )
   );
 };
-// const removeContact = contactId => {
-//   dispatch(deleteContacts(contactId));
-//   new Audio(mpDelete).play();
-// };
-
-// const visibleContacts = () => {
-//   return home.filter(contact =>
-//    home.name
-//       .toString()
-//       .toLowerCase()
-//       .includes(filterTerm.toString().toLowerCase())
-//   );
-// };
-
-// const visContacts = visibleContacts();
-// const sorted = [...visContacts].sort((a, b) =>
-//   a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
-// );

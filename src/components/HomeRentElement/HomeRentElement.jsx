@@ -13,15 +13,15 @@ import iconBed from '../images/iconBed.png';
 import iconSizeFt from '../images/iconSizeFt.png';
 import iconSizeM from '../images/iconSizeM.png';
 
-import css from './HomeElement.module.css';
+import css from './HomeRentElement.module.css';
 
-export const HomeElement = () => {
+export const HomeRentElement = () => {
   const homeId = useSelector(selecthomeId);
   // console.log('homeId: ', homeId);
 
   const { zpid } = useParams();
   console.log(' zpid : ', zpid);
-  const isLoading = useSelector(state => state.buyStore.isLoading);
+  // const isLoading = useSelector(state => state.buyStore.isLoading);
   // const error = useSelector(state => state.contactsStore.error);
 
   const dispatch = useDispatch();
@@ -34,12 +34,6 @@ export const HomeElement = () => {
     }
   }, [zpid, dispatch]);
 
-  // console.log('HomeId after fetch:', homeId);
-
-  // if (isLoading) {
-  //   // Якщо дані ще завантажуються, відображення завантажувача або іншого індікатора
-  //   return <p>Loading...</p>;
-  // }
   const HighlightedDescription = ({ description }) => {
     const renderStyledText = () => {
       const description = homeId?.description || '';
@@ -74,29 +68,29 @@ export const HomeElement = () => {
   // } else {
   //   console.error('homeId- це НЕ рядок.');
   // }
-  const citySearchUrl = homeId.citySearchUrl ? homeId.citySearchUrl.text : '';
+  // const citySearchUrl = homeId.citySearchUrl ? homeId.citySearchUrl.text : '';
 
-  const address = homeId.address ? homeId.address : {};
-  const streetAddress = address.streetAddress ? address.streetAddress : '';
-  const city = address.city ? address.city : '';
-  const state = address.state ? address.state : '';
-  const zipcode = address.zipcode ? address.zipcode : '';
-  const country = homeId.country ? homeId.country : '';
+  // const address = homeId.address ? homeId.address : {};
+  // const streetAddress = address.streetAddress ? address.streetAddress : '';
+  // const city = address.city ? address.city : '';
+  // const state = address.state ? address.state : '';
+  // const zipcode = address.zipcode ? address.zipcode : '';
+  // const country = homeId.country ? homeId.country : '';
 
-  const price = homeId.price ? homeId.price : '';
-  const galery = homeId.responsivePhotos ? homeId.responsivePhotos : '';
+  // const price = homeId.price ? homeId.price : '';
+  // const galery = homeId.responsivePhotos ? homeId.responsivePhotos : '';
 
-  console.log('galery: ', galery);
+  // console.log('galery: ', galery);
 
   return (
     typeof homeId !== 'string' && (
       <>
         <div className={css.homeContainer}>
           <div className={css.homeLeftContainer}>
-            <h2 className={css.title}>{citySearchUrl}</h2>
-            <p className={css.address}>
+            {/* <h2 className={css.title}>{citySearchUrl}</h2> */}
+            {/* <p className={css.address}>
               {streetAddress}, {city}, {state} {zipcode}, {country}
-            </p>
+            </p> */}
             <div className={css.aboutDetails}>
               <p>
                 <img
@@ -135,7 +129,7 @@ export const HomeElement = () => {
                 {(homeId.livingArea / 10.7638).toFixed(2)} m²
               </p>
             </div>
-            <p className={css.price}>$ {price.toLocaleString()}</p>
+            {/* <p className={css.price}>$ {price.toLocaleString()}</p> */}
             <p className={css.published}>
               Published on: {homeId.datePostedString}
             </p>

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts } from 'redux/contacts/contacts.selector';
+import { selectBuy } from 'redux/buy/buy.selector';
 import { GoogleMap, InfoWindow } from '@react-google-maps/api';
 import { CurrentLocationMarker } from '../CurrentLocationMarker';
-import { fetchHome } from 'redux/contacts/contacts.reducer';
+import { fetchHome } from 'redux/buy/buy.reducer';
 import { NavLink } from 'react-router-dom';
 
 import iconBath from '../images/iconBath.png';
@@ -32,7 +32,7 @@ const defaultOptions = {
 };
 
 const Map = ({ center }) => {
-  const listResults = useSelector(selectContacts);
+  const listResults = useSelector(selectBuy);
   const dispatch = useDispatch();
   const mapRef = React.useRef(undefined);
   const [selectedMarker, setSelectedMarker] = useState(null);

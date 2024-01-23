@@ -1,20 +1,22 @@
 import { Route, Routes } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import { refreshThunk } from 'redux/auth/auth.reducer';
+// import { useSelector, useDispatch } from 'react-redux';
+// import { useEffect } from 'react';
+// import { refreshThunk } from 'redux/auth/auth.reducer';
 import HomePage from 'pages/HomePage/HomePage';
 import BuyPage from 'pages/BuyPage/BuyPage';
+import RentPage from 'pages/RentPage/RentPage';
 import HomeElementPage from 'pages/HomeElementPage/HomeElementPage';
 import Layout from 'components/Layout/Layout';
-import Page404 from 'pages/Page404/Page404';
-import Login from 'pages/LoginPage/LoginPage';
-import Register from 'pages/RegisterPage/RegisterPage';
-import RestrictedRoute from './RestrictedRoute';
-import PrivateRoute from './PrivateRoute';
-import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
+// import Page404 from 'pages/Page404/Page404';
+// import Login from 'pages/LoginPage/LoginPage';
+// import Register from 'pages/RegisterPage/RegisterPage';
+// import RestrictedRoute from './RestrictedRoute';
+// import PrivateRoute from './PrivateRoute';
+// import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 import * as ROUTES from '../constants/routes';
-import { selectAuthenticated } from 'redux/auth/auth.selectors';
+// import { selectAuthenticated } from 'redux/auth/auth.selectors';
 import { HomeElement } from 'components/HomeElement/HomeElement';
+import { HomeRentElement } from 'components/HomeRentElement/HomeRentElement';
 
 const appRoutes = [
   {
@@ -30,9 +32,18 @@ const appRoutes = [
     element: <HomeElement />,
   },
   {
+    path: ROUTES.RENT_ZPID_ROUTE,
+    element: <HomeRentElement />,
+  },
+  {
     path: ROUTES.BUY_ROUTE,
     element: <BuyPage />,
   },
+  {
+    path: ROUTES.RENT_ROUTE,
+    element: <RentPage />,
+  },
+
   // {
   //   path: ROUTES.REGISTER_ROUTE,
   //   element: (

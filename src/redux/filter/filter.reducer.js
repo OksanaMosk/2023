@@ -8,7 +8,7 @@ export const filterHome = createAsyncThunk(
 
   async (queryValue, thunkApi) => {
     try {
-      const apiKey = '9c3a389f-678a-4082-9337-d35b44df3dfc';
+      const apiKey = 'afce4210-4d9a-48e1-a0d4-837e9e0a9b0a';
 
       const { data } = await axios.get(
         `${api_url}?api_key=${apiKey}&q=${queryValue}`

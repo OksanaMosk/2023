@@ -4,7 +4,7 @@ import usePlacesAutocomplete, {
   getLatLng,
 } from 'use-places-autocomplete';
 import useOnclickOutside from 'react-cool-onclickoutside';
-import { fetchHome } from 'redux/contacts/contacts.reducer';
+import { fetchHome } from 'redux/buy/buy.reducer';
 import axios from 'axios';
 
 import css from './Autocomplete.module.css';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { BuyList } from 'components/BuyList/BuyList';
+import { RentList } from 'components/RentList/RentList';
 import { useLocation } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import Find from 'components/Find/Find';
@@ -11,7 +11,7 @@ import { Autocomplete } from 'components/Autocomplete';
 import { getBrowserLocation } from 'utils/geo';
 import { useJsApiLoader } from '@react-google-maps/api';
 
-import css from './BuyPage.module.css';
+import css from './RentPage.module.css';
 const API_KEY = process.env.REACT_APP_API_KEY;
 console.log('API_KEY: ', API_KEY);
 
@@ -22,9 +22,9 @@ const defaultCenter = {
 
 const libraries = ['places'];
 
-const BuyPage = () => {
+const RentPage = () => {
   //   const listResults = useSelector(state => state.contactsStore.listResults);
-  const isLoading = useSelector(state => state.buyStore.isLoading);
+  const isLoading = useSelector(state => state.rentStore.isLoading);
   // const error = useSelector(state => state.contactsStore.error);
   const location = useLocation();
   const backLinkRef = useRef(location.state?.from ?? '/');
@@ -79,7 +79,7 @@ const BuyPage = () => {
       </div>
       <div className={css.contacts}></div>
 
-      <BuyList />
+      <RentList />
       {/* {error !== null && <Navigate to="/contacts/404" replace={true} />} */}
       <NavLink
         state={{ from: location }}
@@ -95,4 +95,4 @@ const BuyPage = () => {
     </div>
   );
 };
-export default BuyPage;
+export default RentPage;
