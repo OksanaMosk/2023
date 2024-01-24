@@ -63,7 +63,7 @@ export const BuyList = ({ setSelectedMarker }) => {
                         alt="iconBath"
                         style={{ width: '20px', height: '20px' }}
                       />
-                      {result.beds}
+                      {result.baths}
                     </p>
                     <p>
                       <img
@@ -72,7 +72,7 @@ export const BuyList = ({ setSelectedMarker }) => {
                         alt="iconBed"
                         style={{ width: '20px', height: '20px' }}
                       />
-                      {result.baths}
+                      {result.beds}
                     </p>
                     <p>
                       <img

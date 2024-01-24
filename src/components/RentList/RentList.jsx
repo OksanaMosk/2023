@@ -34,17 +34,19 @@ export const RentList = ({ setSelectedMarker }) => {
       <div className={css.homeContainer}>
         <ul className={css.homeList}>
           {listResults.map(result => (
-            <li className={css.itemHome} key={result.zpid}>
+            <li
+              className={css.itemHome}
+              key={result.lotId || result.providerListingId}
+            >
               <div className={css.everyItem}>
                 {result.imgSrc && (
                   <img
                     src={result.imgSrc}
-                    alt={`House ${result.zpid}`}
+                    alt={`House ${result.lotId || result.providerListingId}`}
                     style={{ width: 'auto', maxHeight: '250px' }}
                   />
                 )}
                 <div className={css.about}>
-                  {/* <p className={css.price}>{result.price.toLocaleString()}</p> */}
                   <p
                     className={css.address}
                     style={{
@@ -55,48 +57,66 @@ export const RentList = ({ setSelectedMarker }) => {
                   >
                     {result.address.replace(/,([^,]{0,10})$/, ',\u00A0$1')}
                   </p>
-                  <div className={css.aboutDetails}>
-                    <p>
-                      <img
-                        className={css.icon}
-                        src={iconBath}
-                        alt="iconBath"
-                        style={{ width: '20px', height: '20px' }}
-                      />
-                      {result.beds}
-                    </p>
-                    <p>
+                  {result.price && <p className={css.price}>{result.price}</p>}
+                  <p className={css.bath}>
+                    {result.baths ? (
+                      <>
+                        <img
+                          className={css.icon}
+                          src={iconBath}
+                          alt="iconBath"
+                          style={{ width: '20px', height: '20px' }}
+                        />
+                        {result.baths}
+                      </>
+                    ) : (
+                      ''
+                    )}
+                  </p>
+                  {result.beds && (
+                    <p className={css.beds}>
                       <img
                         className={css.icon}
                         src={iconBed}
                         alt="iconBed"
                         style={{ width: '20px', height: '20px' }}
                       />
-                      {result.baths}
+                      {result.beds}
                     </p>
-                    <p>
-                      <img
-                        className={css.icon}
-                        src={iconSizeFt}
-                        alt="iconSizeFt"
-                        style={{ width: '20px', height: '20px' }}
-                      />
-                      {result.area} sqft
-                    </p>
-                    <p>
-                      <img
-                        className={css.icon}
-                        src={iconSizeM}
-                        alt="iconSizeM"
-                        style={{ width: '20px', height: '20px' }}
-                      />
-                      {(result.area / 10.7638).toFixed(2)} m²
-                    </p>
-                  </div>
+                  )}
+                  {result.units &&
+                    result.units.map(unit => (
+                      <div
+                        key={unit.beds + unit.price}
+                        className={css.aboutDetails}
+                      >
+                        {unit.price && (
+                          <p className={css.price}>{unit.price}</p>
+                        )}
+
+                        {unit.beds !== undefined && (
+                          <p className={css.beds}>
+                            {unit.beds === '0' ? (
+                              'Studio'
+                            ) : (
+                              <>
+                                {unit.beds}
+                                <img
+                                  className={css.icon}
+                                  src={iconBed}
+                                  alt="iconBed"
+                                  style={{ width: '20px', height: '20px' }}
+                                />
+                              </>
+                            )}
+                          </p>
+                        )}
+                      </div>
+                    ))}
                   <NavLink
                     className={css.toHomeElement}
-                    key={result.id}
-                    to={`/rent/${result.id}`}
+                    key={result.lotId || result.providerListingId}
+                    to={`/rent/${result.lotId || result.providerListingId}`}
                     onClick={() => setSelectedMarker(result)}
                   >
                     View details
@@ -104,7 +124,7 @@ export const RentList = ({ setSelectedMarker }) => {
                 </div>
 
                 {isLoading && <LoaderSmall />}
-                {error !== null && <>{error}</>}
+                {error !== null && <div className={css.error}>{error}</div>}
               </div>
             </li>
           ))}
