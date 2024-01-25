@@ -112,7 +112,7 @@ const Map = ({ center }) => {
         <NavLink
           className={css.toHomeElement}
           key={marker.id}
-          to={`/buy/${marker.id}`}
+          to={`/buy/${marker.zpid}`}
           onClick={() => setSelectedMarker(marker)}
         >
           View details

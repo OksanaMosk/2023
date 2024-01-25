@@ -45,7 +45,6 @@ const BuyPage = () => {
         setCenter(browserLocation);
       } catch (error) {
         console.error('Failed to get browser location:', error);
-        // Тут ви можете вирішити, якщо не вдається отримати місцезнаходження.
       }
     }
   }, []);
@@ -54,7 +53,7 @@ const BuyPage = () => {
     console.log('Before getBrowserLocation call');
     getBrowserLocation()
       .then(curLoc => {
-        console.log('Browser Location:', curLoc); // Додано виведення координат
+        console.log('Browser Location:', curLoc);
         setCenter(curLoc);
       })
       .catch(defaultLocation => {

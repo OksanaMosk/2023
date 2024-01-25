@@ -8,7 +8,7 @@ export const findHome = createAsyncThunk(
 
   async (queryValue, thunkApi) => {
     try {
-      const apiKey = 'afce4210-4d9a-48e1-a0d4-837e9e0a9b0a';
+      const apiKey = '3789dee7-ec4b-4fa8-9fc3-f47a9a45ef16';
 
       const { data } = await axios.get(
         `${api_url}?api_key=${apiKey}&q=${queryValue}`

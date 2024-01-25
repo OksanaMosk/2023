@@ -71,11 +71,11 @@ const RentPage = () => {
         <div className={css.addressSearchContainer}>
           <Autocomplete isLoaded={isLoaded} onSelect={onPlaceSelect} />
         </div>
-        {isLoaded && window.google && window.google.maps ? (
+        {/* {isLoaded && window.google && window.google.maps ? (
           <Map center={center} />
         ) : (
           <h2 className={css.isLoading}>Loading...</h2>
-        )}
+        )} */}
       </div>
       <div className={css.contacts}></div>
 
