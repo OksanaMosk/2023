@@ -5,7 +5,7 @@ import usePlacesAutocomplete, {
 } from 'use-places-autocomplete';
 import useOnclickOutside from 'react-cool-onclickoutside';
 import { fetchRentHome } from 'redux/rent/rent.reducer';
-import axios from 'axios';
+// import axios from 'axios';
 
 import css from './AutocompleteRent.module.css';
 

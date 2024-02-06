@@ -1,20 +1,20 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useLocation, NavLink } from 'react-router-dom';
-import { selectAuthenticated } from 'redux/auth/auth.selectors';
-import { selectUserData } from 'redux/auth/auth.selectors';
-import { logOutThunk } from 'redux/auth/auth.reducer';
+// import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+// import { selectAuthenticated } from 'redux/auth/auth.selectors';
+// import { selectUserData } from 'redux/auth/auth.selectors';
+// import { logOutThunk } from 'redux/auth/auth.reducer';
 import zillow from '../images/iconZillow.png';
 import css from './Layout.module.css';
 
 const Layout = ({ children }) => {
-  const userData = useSelector(selectUserData);
-  const location = useLocation();
-  const dispatsh = useDispatch();
+  // const userData = useSelector(selectUserData);
+  // const location = useLocation();
+  // const dispatsh = useDispatch();
   // const authenticated = useSelector(selectAuthenticated);
 
-  const onLogOut = () => {
-    dispatsh(logOutThunk());
-  };
+  // const onLogOut = () => {
+  //   dispatsh(logOutThunk());
+  // };
 
   return (
     <div className={css.mainTitleContainer}>

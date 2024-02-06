@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import { filterHome } from 'redux/filter/filter.reducer';
 
 import css from './Filter.module.css';

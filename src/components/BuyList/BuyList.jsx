@@ -3,14 +3,14 @@ import { fetchHome } from 'redux/buy/buy.reducer';
 
 import { selectBuy } from 'redux/buy/buy.selector';
 // import { selectFilterTerm } from 'redux/filter/filter.selector';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import LoaderSmall from 'components/Loader/LoaderSmall';
 import iconBath from '../images/iconBath.png';
 import iconBed from '../images/iconBed.png';
 import iconSizeFt from '../images/iconSizeFt.png';
 import iconSizeM from '../images/iconSizeM.png';
 import { NavLink } from 'react-router-dom';
-import { CurrentLocationMarker } from '../CurrentLocationMarker';
+// import { CurrentLocationMarker } from '../CurrentLocationMarker';
 
 import css from './BuyList.module.css';
 

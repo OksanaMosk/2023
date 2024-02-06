@@ -1,17 +1,18 @@
-import React, { useCallback, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import React from 'react';
+
+// import { useLocation } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
+// import { useSelector } from 'react-redux';
 
 import { useJsApiLoader } from '@react-google-maps/api';
-import Loader from 'components/Loader/Loader';
-import { Map } from 'components/Map';
-import { Autocomplete } from 'components/Autocomplete';
+// import Loader from 'components/Loader/Loader';
+// import { Map } from 'components/Map';
+// import { Autocomplete } from 'components/Autocomplete';
 import { getBrowserLocation } from 'utils/geo';
 // import photo1 from 'images/icons8-phonebook-96.png';
 // import photo2 from 'images/icons8-add-a-new-contact-on-modern-cell-phone-96.png';
 
-import css from './HomePage.module.css';
+// import css from './HomePage.module.css';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 console.log('API_KEY: ', API_KEY);
@@ -32,8 +33,10 @@ const HomePage = () => {
     googleMapsApiKey: API_KEY,
     libraries,
   });
+  console.log(center, isLoaded);
 
   const onPlaceSelect = React.useCallback(coordinates => {
+    console.log('onPlaceSelect: ', onPlaceSelect);
     setCenter(coordinates);
   }, []);
 
