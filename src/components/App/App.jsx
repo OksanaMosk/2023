@@ -5,7 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import HomePage from 'pages/HomePage/HomePage';
 import BuyPage from 'pages/BuyPage/BuyPage';
 import RentPage from 'pages/RentPage/RentPage';
-import HomeElementPage from 'pages/HomeElementPage/HomeElementPage';
+// import HomeElementPage from 'pages/HomeElementPage/HomeElementPage';
 import Layout from 'components/Layout/Layout';
 // import Page404 from 'pages/Page404/Page404';
 // import Login from 'pages/LoginPage/LoginPage';

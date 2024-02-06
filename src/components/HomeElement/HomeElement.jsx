@@ -21,7 +21,7 @@ export const HomeElement = () => {
 
   const { zpid } = useParams();
   console.log(' zpid : ', zpid);
-  const isLoading = useSelector(state => state.buyStore.isLoading);
+  // const isLoading = useSelector(state => state.buyStore.isLoading);
   // const error = useSelector(state => state.contactsStore.error);
 
   const dispatch = useDispatch();

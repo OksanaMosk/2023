@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import { findHome } from 'redux/find/find.reducer';
 
 import css from './Find.module.css';

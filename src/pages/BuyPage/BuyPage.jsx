@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { BuyList } from 'components/BuyList/BuyList';
 import { useLocation } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
-import Find from 'components/Find/Find';
+// import Find from 'components/Find/Find';
 import Loader from 'components/Loader/Loader';
 import { useRef } from 'react';
 import { Map } from 'components/Map';
