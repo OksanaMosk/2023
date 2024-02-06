@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectBuy } from 'redux/buy/buy.selector';
+import { selectRent } from 'redux/rent/rent.selector';
 import { GoogleMap, InfoWindow } from '@react-google-maps/api';
 import { CurrentLocationMarker } from '../CurrentLocationMarker';
-import { fetchHome } from 'redux/buy/buy.reducer';
+import { fetchRentHome } from 'redux/rent/rent.reducer';
 import { NavLink } from 'react-router-dom';
 
 import iconBath from '../images/iconBath.png';
@@ -11,7 +11,7 @@ import iconBed from '../images/iconBed.png';
 import iconSizeFt from '../images/iconSizeFt.png';
 import iconSizeM from '../images/iconSizeM.png';
 
-import css from './Map.module.css';
+import css from './MapRent.module.css';
 
 const containerStyle = {
   width: '100%',
@@ -31,8 +31,8 @@ const defaultOptions = {
   fullscreenContron: false,
 };
 
-const Map = ({ center }) => {
-  const listResults = useSelector(selectBuy);
+const MapRent = ({ center }) => {
+  const listResults = useSelector(selectRent);
   const dispatch = useDispatch();
   const mapRef = React.useRef(undefined);
   const [selectedMarker, setSelectedMarker] = useState(null);
@@ -46,21 +46,21 @@ const Map = ({ center }) => {
   }, []);
 
   React.useEffect(() => {
-    dispatch(fetchHome());
+    dispatch(fetchRentHome());
   }, [dispatch]);
 
   const renderInfoWindowContent = marker => (
-    <div className={css.everyItem} key={marker.zpid}>
+    <div className={css.everyItem} key={marker.id}>
       {marker.imgSrc && (
         <img
           className={css.everyItemImg}
           src={marker.imgSrc}
-          alt={`House ${marker.zpid}`}
+          alt={`House ${marker.lotId}`}
           style={{ width: 'auto', maxHeight: '100px' }}
         />
       )}
       <div className={css.about}>
-        <p className={css.price}>{marker.price.toLocaleString()}</p>
+        {/* <p className={css.price}>{marker.price.toLocaleString()}</p> */}
         <p
           className={css.address}
           style={{
@@ -112,7 +112,7 @@ const Map = ({ center }) => {
         <NavLink
           className={css.toHomeElement}
           key={marker.id}
-          to={`/buy/${marker.zpid}`}
+          to={`/rent/${marker.lotId}`}
           onClick={() => setSelectedMarker(marker)}
         >
           View details
@@ -135,17 +135,17 @@ const Map = ({ center }) => {
         {listResults.length
           ? listResults.map(result => (
               <CurrentLocationMarker
-                key={result.zpid}
+                key={result.lotId && result.lotId.toString()}
                 position={{
                   lat: parseFloat(result.latLong.latitude),
                   lng: parseFloat(result.latLong.longitude),
                 }}
                 onClick={() => setSelectedMarker(result)}
-                zpid={result.zpid}
+                lotId={result.lotId}
               />
             ))
           : null}
-        {selectedMarker?.zpid && (
+        {selectedMarker?.lotId && (
           <InfoWindow
             position={{
               lat: parseFloat(selectedMarker.latLong.latitude),
@@ -163,4 +163,4 @@ const Map = ({ center }) => {
   );
 };
 
-export { Map };
+export { MapRent };

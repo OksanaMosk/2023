@@ -4,12 +4,12 @@ import usePlacesAutocomplete, {
   getLatLng,
 } from 'use-places-autocomplete';
 import useOnclickOutside from 'react-cool-onclickoutside';
-import { fetchHome } from 'redux/buy/buy.reducer';
+import { fetchRentHome } from 'redux/rent/rent.reducer';
 import axios from 'axios';
 
-import css from './Autocomplete.module.css';
+import css from './AutocompleteRent.module.css';
 
-export const Autocomplete = ({ isLoaded, onSelect }) => {
+export const AutocompleteRent = ({ isLoaded, onSelect }) => {
   const {
     ready,
     value,
@@ -45,8 +45,7 @@ export const Autocomplete = ({ isLoaded, onSelect }) => {
         east: lng + 1,
         west: lng - 1,
       };
-      console.log('City Coordinates:', cityCoordinates);
-      const data = await fetchHome(cityCoordinates);
+      const data = await fetchRentHome(cityCoordinates);
       console.log('Fetched Data: ', data);
     } catch (error) {
       console.log('Error: ', error);
@@ -59,7 +58,6 @@ export const Autocomplete = ({ isLoaded, onSelect }) => {
         place_id,
         structured_formatting: { main_text, secondary_text },
       } = suggestion;
-      console.log('Suggestion:', suggestion);
 
       return (
         <li

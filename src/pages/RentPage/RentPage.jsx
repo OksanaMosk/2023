@@ -3,11 +3,11 @@ import { useSelector } from 'react-redux';
 import { RentList } from 'components/RentList/RentList';
 import { useLocation } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
-import Find from 'components/Find/Find';
+// import Find from 'components/Find/Find';
 import Loader from 'components/Loader/Loader';
 import { useRef } from 'react';
-import { Map } from 'components/Map';
-import { Autocomplete } from 'components/Autocomplete';
+import { MapRent } from 'components/MapRent';
+import { AutocompleteRent } from 'components/AutocompleteRent';
 import { getBrowserLocation } from 'utils/geo';
 import { useJsApiLoader } from '@react-google-maps/api';
 
@@ -45,7 +45,6 @@ const RentPage = () => {
         setCenter(browserLocation);
       } catch (error) {
         console.error('Failed to get browser location:', error);
-        // Тут ви можете вирішити, якщо не вдається отримати місцезнаходження.
       }
     }
   }, []);
@@ -54,7 +53,7 @@ const RentPage = () => {
     console.log('Before getBrowserLocation call');
     getBrowserLocation()
       .then(curLoc => {
-        console.log('Browser Location:', curLoc); // Додано виведення координат
+        console.log('Browser Location:', curLoc);
         setCenter(curLoc);
       })
       .catch(defaultLocation => {
@@ -69,13 +68,13 @@ const RentPage = () => {
     <div className={css.buyContainer}>
       <div className={css.mapContainer}>
         <div className={css.addressSearchContainer}>
-          <Autocomplete isLoaded={isLoaded} onSelect={onPlaceSelect} />
+          <AutocompleteRent isLoaded={isLoaded} onSelect={onPlaceSelect} />
         </div>
-        {/* {isLoaded && window.google && window.google.maps ? (
-          <Map center={center} />
+        {isLoaded && window.google && window.google.maps ? (
+          <MapRent center={center} />
         ) : (
           <h2 className={css.isLoading}>Loading...</h2>
-        )} */}
+        )}
       </div>
       <div className={css.contacts}></div>
 
