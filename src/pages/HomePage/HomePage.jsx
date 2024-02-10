@@ -68,7 +68,7 @@ const HomePage = () => {
             state={{ from: location }}
             to="/buy"
           >
-            <img src={buyPhoto} alt="{photo}" width={300} height={200}></img>
+            <img src={buyPhoto} alt="{photo}" width="50%" height="50%"></img>
           </NavLink>
         </div>
         <div>
@@ -78,7 +78,7 @@ const HomePage = () => {
             state={{ from: location }}
             to="/rent"
           >
-            <img src={rentPhoto} alt="{photo}" width={170} height={170}></img>
+            <img src={rentPhoto} alt="{photo}" width="50%" height="50%"></img>
           </NavLink>
         </div>
       </div>
