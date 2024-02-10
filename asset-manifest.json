@@ -1,13 +1,29 @@
 {
   "files": {
-    "main.css": "/realestate/static/css/main.3e169692.css",
-    "main.js": "/realestate/static/js/main.b0e959ee.js",
+    "main.css": "/realestate/static/css/main.2291d278.css",
+    "main.js": "/realestate/static/js/main.edf77e24.js",
+    "static/media/09.jpg": "/realestate/static/media/09.40c41af391e0e544b756.jpg",
+    "static/media/10.jpg": "/realestate/static/media/10.0ae5ecf58c34686d134b.jpg",
+    "static/media/04.jpg": "/realestate/static/media/04.42cfbd4396044db3aec6.jpg",
+    "static/media/11.jpg": "/realestate/static/media/11.cf63c8a516f2e335d595.jpg",
+    "static/media/03.jpg": "/realestate/static/media/03.53c843ba321d5055740e.jpg",
+    "static/media/07.jpg": "/realestate/static/media/07.ae6376fb6cb31275b584.jpg",
+    "static/media/01.png": "/realestate/static/media/01.a36abdd74a9ef0c80007.png",
+    "static/media/02.jpg": "/realestate/static/media/02.f240c5c2de29a89a904e.jpg",
+    "static/media/06.jpg": "/realestate/static/media/06.272ef820814b00aaca79.jpg",
+    "static/media/08.jpg": "/realestate/static/media/08.5e409e3794d8cd8cb169.jpg",
+    "static/media/12.jpg": "/realestate/static/media/12.047e86f1ee31b547632e.jpg",
+    "static/media/05.jpg": "/realestate/static/media/05.e76e2740276bd956eae1.jpg",
+    "static/media/13.jpg": "/realestate/static/media/13.f3959c159a5d916bcedf.jpg",
+    "static/media/14.jpg": "/realestate/static/media/14.14966617bf13eb891bd9.jpg",
+    "static/media/buy.png": "/realestate/static/media/buy.4eef87a2f8e97f3a7ec3.png",
+    "static/media/rent.png": "/realestate/static/media/rent.fe30be7bfa2e9b4bdb8e.png",
     "index.html": "/realestate/index.html",
-    "main.3e169692.css.map": "/realestate/static/css/main.3e169692.css.map",
-    "main.b0e959ee.js.map": "/realestate/static/js/main.b0e959ee.js.map"
+    "main.2291d278.css.map": "/realestate/static/css/main.2291d278.css.map",
+    "main.edf77e24.js.map": "/realestate/static/js/main.edf77e24.js.map"
   },
   "entrypoints": [
-    "static/css/main.3e169692.css",
-    "static/js/main.b0e959ee.js"
+    "static/css/main.2291d278.css",
+    "static/js/main.edf77e24.js"
   ]
 }
