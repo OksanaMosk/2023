@@ -11,6 +11,7 @@ import css from './AutocompleteRent.module.css';
 
 export const AutocompleteRent = ({ isLoaded, onSelect }) => {
   const [formattedValue, setFormattedValue] = useState('');
+  console.log('formattedValue: ', formattedValue);
   const dispatch = useDispatch();
 
   const {

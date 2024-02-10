@@ -12,6 +12,7 @@ import css from './Autocomplete.module.css';
 
 export const Autocomplete = ({ isLoaded, onSelect }) => {
   const [formattedValue, setFormattedValue] = useState('');
+  console.log('formattedValue: ', formattedValue);
   const dispatch = useDispatch();
 
   const {
