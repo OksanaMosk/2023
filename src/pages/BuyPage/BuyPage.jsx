@@ -13,7 +13,6 @@ import { useJsApiLoader } from '@react-google-maps/api';
 
 import css from './BuyPage.module.css';
 const API_KEY = process.env.REACT_APP_API_KEY;
-console.log('API_KEY: ', API_KEY);
 
 const defaultCenter = {
   lat: 25.761681,

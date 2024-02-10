@@ -1,9 +1,10 @@
 .home {
+  margin-top: 70px;
   display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
-  justify-content: space-between;
-  gap: 30px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 100px;
 }
 
 .toLinkHome {
@@ -35,4 +36,49 @@
   transform: translateX(-50%);
   z-index: 10;
   display: flex;
+}
+.carousel {
+  margin-top: 60px;
+  height: 470px;
+}
+.homePage1,
+.homePage2 {
+  width: 32vw;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  cursor: pointer;
+  box-shadow: 10px 10px 7px 0px rgba(177, 185, 204, 0.12),
+    10px 10px 5px 0px rgba(177, 185, 204, 0.14),
+    10px 10px 5px 0px rgba(177, 185, 204, 0.12);
+
+  border-width: 2px 2px 2px 2px;
+  color: #fff;
+  border: 1.5px solid #e6eaed;
+  border-radius: 10px;
+  line-height: 48px;
+  margin: 30px 0 70px 0;
+
+  text-align: center;
+}
+
+.homePage1:focus,
+.homePage1:hover,
+.homePage2:focus,
+.homePage2:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.homeTitle {
+  display: flex;
+  justify-content: center;
+}
+.homeTitle:focus,
+.homeTitle:hover {
+  transform: scale(1.1);
+
+  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }

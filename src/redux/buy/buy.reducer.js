@@ -7,13 +7,40 @@ const api_url = 'https://app.scrapeak.com/v1/scrapers/zillow/listing';
 export const fetchHome = createAsyncThunk(
   'homes/fetchAll',
 
-  async (_, thunkApi) => {
+  async ({ cityCoordinates, formattedValue, State, RegionID }, thunkApi) => {
     try {
-      const apiKey = 'a328cbf5-d180-485d-9aa1-535a944ee96b';
+      console.log(
+        'Fetching buy homes with parameters:',
+        cityCoordinates,
+        formattedValue,
+        State,
+        RegionID
+      );
+      const apiKey = '2f9951b3-5db9-4ec8-aa91-ed23dae24b60';
+
       const { data } = await axios.get(
-        `${api_url}?api_key=${apiKey}&url=https://www.zillow.com/ miami-fl/?searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A25.788222075074618%2C%22south%22%3A25.661720324138102%2C%22east%22%3A-80.36129951477051%2C%22west%22%3A-80.56214332580566%7D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%2C%22ah%22%3A%7B%22value%22%3Atrue%7D%7D%2C%22isListVisible%22%3Atrue%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A12700%2C%22regionType%22%3A6%7D%5D%2C%22pagination%22%3A%7B%7D%2C%22mapZoom%22%3A6%7D`
+        `${api_url}?api_key=${apiKey}&url=https://www.zillow.com/${formattedValue}-${State.toLowerCase()}?searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A${
+          cityCoordinates.north
+        }%2C%22south%22%3A${cityCoordinates.south}%2C%22east%22%3A${
+          cityCoordinates.east
+        }%2C%22west%22%3A${
+          cityCoordinates.west
+        }%7D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%2C%22ah%22%3A%7B%22value%22%3Atrue%7D%7D%2C%22isListVisible%22%3Atrue%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A${RegionID}%2C%22regionType%22%3A6%7D%5D%2C%22pagination%22%3A%7B%7D%2C%22mapZoom%22%3A6%7D`
+      );
+      console.log(
+        `${api_url}?api_key=${apiKey}&url=https://www.zillow.com/${formattedValue}-${State.toLowerCase()}?searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A${
+          cityCoordinates.north
+        }%2C%22south%22%3A${cityCoordinates.south}%2C%22east%22%3A${
+          cityCoordinates.east
+        }%2C%22west%22%3A${
+          cityCoordinates.west
+        }%7D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%2C%22ah%22%3A%7B%22value%22%3Atrue%7D%7D%2C%22isListVisible%22%3Atrue%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A${RegionID}%2C%22regionType%22%3A6%7D%5D%2C%22pagination%22%3A%7B%7D%2C%22mapZoom%22%3A6%7D`
       );
 
+      console.log('State:', State);
+      console.log('cityCoordinates:', cityCoordinates);
+      console.log('RegionID:', RegionID);
+      console.log('rentReducer ', data.data.cat1.searchResults.listResults);
       return data.data.cat1.searchResults.listResults;
     } catch (err) {
       return thunkApi.rejectWithValue(err.message);

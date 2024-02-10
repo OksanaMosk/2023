@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,
 } from 'use-places-autocomplete';
 import useOnclickOutside from 'react-cool-onclickoutside';
 import { fetchHome } from 'redux/buy/buy.reducer';
-// import axios from 'axios';
+import citiesData from '../BuyList/sity';
 
 import css from './Autocomplete.module.css';
 
 export const Autocomplete = ({ isLoaded, onSelect }) => {
+  const [formattedValue, setFormattedValue] = useState('');
+  const dispatch = useDispatch();
+
   const {
     ready,
     value,
@@ -26,13 +30,42 @@ export const Autocomplete = ({ isLoaded, onSelect }) => {
     clearSuggestions();
   });
 
-  const handleInput = e => {
-    setValue(e.target.value);
+  const someFunctionToFormatValue = description => {
+    if (typeof description === 'string' && description.trim() !== '') {
+      return description.toLowerCase().replace(/\s+/g, '-');
+    }
   };
 
-  const handleSelect = async ({ description }) => {
+  const handleInput = description => {
+    if (typeof description === 'string') {
+      setValue(description);
+
+      const formatted = someFunctionToFormatValue(description);
+      setFormattedValue(formatted);
+    } else {
+      console.error('Input is not a string:', description);
+    }
+  };
+
+  const findCityData = description => {
+    const cityData = citiesData.find(
+      city => city.RegionName.toLowerCase() === description.toLowerCase()
+    );
+
+    if (cityData) {
+      return {
+        State: cityData.State,
+        RegionID: cityData.RegionID,
+      };
+    }
+
+    return null;
+  };
+
+  const handleSelect = async description => {
     setValue(description, false);
     clearSuggestions();
+
     try {
       const results = await getGeocode({ address: description });
       const { lat, lng } = await getLatLng(results[0]);
@@ -45,9 +78,29 @@ export const Autocomplete = ({ isLoaded, onSelect }) => {
         east: lng + 1,
         west: lng - 1,
       };
-      console.log('City Coordinates:', cityCoordinates);
-      const data = await fetchHome(cityCoordinates);
-      console.log('Fetched Data: ', data);
+
+      const cityData = findCityData(description); // Знаходимо дані міста з sity.json
+
+      if (cityData) {
+        const { State, RegionID } = cityData;
+        if (!cityCoordinates || !State || !RegionID) {
+          console.error('Some properties are empty or undefined!');
+          return;
+        }
+
+        const formattedValue = someFunctionToFormatValue(description);
+
+        dispatch(
+          fetchHome({
+            cityCoordinates,
+            formattedValue,
+            State,
+            RegionID,
+          })
+        );
+      } else {
+        console.log('City not found in sity.json');
+      }
     } catch (error) {
       console.log('Error: ', error);
     }
@@ -59,13 +112,12 @@ export const Autocomplete = ({ isLoaded, onSelect }) => {
         place_id,
         structured_formatting: { main_text, secondary_text },
       } = suggestion;
-      console.log('Suggestion:', suggestion);
 
       return (
         <li
           className={css.listItem}
           key={place_id}
-          onClick={() => handleSelect(suggestion)}
+          onClick={() => handleSelect(main_text)}
         >
           <strong>{main_text}</strong> <small>{secondary_text}</small>
         </li>
@@ -84,7 +136,7 @@ export const Autocomplete = ({ isLoaded, onSelect }) => {
         type="text"
         className={css.input}
         value={value}
-        onChange={handleInput}
+        onChange={e => handleInput(e.target.value)}
         disabled={!ready}
         placeholder="Where are you going?"
       ></input>
