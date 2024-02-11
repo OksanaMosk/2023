@@ -34,6 +34,7 @@ header {
   align-items: center;
   margin-block-end: 0;
   margin-block-start: 0;
+  font-size: clamp(10px, 3vw, 36px);
 }
 .mainTitle img {
   display: flex;
@@ -153,7 +154,7 @@ header {
   justify-content: flex-start;
   align-items: center;
   border-radius: 10px;
-  font-size: 18px;
+  font-size: clamp(10px, 3vw, 18px);
   text-decoration: none;
   text-transform: capitalize;
 
