@@ -43,7 +43,7 @@
 .homePage1,
 .homePage2 {
   width: 27vw;
-  aspect-ratio: 1 / 1.2;
+  aspect-ratio: 1 / 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,7 +58,7 @@
   border: 1.5px solid #e6eaed;
   border-radius: 10px;
   line-height: 48px;
-  margin: 20px 0 50px 0;
+  margin: 30px 0 50px 0;
 
   text-align: center;
 }
