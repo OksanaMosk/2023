@@ -139,7 +139,7 @@ export const Autocomplete = ({ isLoaded, onSelect }) => {
         value={value}
         onChange={e => handleInput(e.target.value)}
         disabled={!ready}
-        placeholder="Where are you going?"
+        placeholder="Where are you going ( USA city only)?"
       ></input>
 
       {status === 'OK' && (

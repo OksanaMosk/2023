@@ -8,6 +8,7 @@ const photosForDesktop = [
     import(`../imagesHome/forDesktop/${String(i + 2).padStart(2, '0')}.jpg`)
   ),
 ];
+console.log('photosForDesktop: ', photosForDesktop);
 
 const photosForMobile = [
   ...[...Array(12).keys()].map(it =>
@@ -47,14 +48,14 @@ export const CarouselHome = () => {
       <picture>
         <source
           srcSet={`${item.originalDesktop} 100%`}
-          media="(min-width:1158px)"
+          media="(min-width:1440px)"
         />
         <source
-          srcSet={`${item.originalMobile} 768w`}
-          media="(min-width:768px)"
+          srcSet={`${item.originalMobile} 340w`}
+          media="(max-width:1439px)"
         />
         <source
-          srcSet={`${item.originalMobile} 768w`}
+          srcSet={`${item.originalMobile} 380w`}
           media="(max-width:767px)"
         />
         <img
