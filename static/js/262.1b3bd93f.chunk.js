@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkreact_homework_template=self.webpackChunkreact_homework_template||[]).push([[262],{5262:function(e,t,a){e.exports=a.p+"static/media/08.cbd78eda72a2c7bd0157.jpg"}}]);
