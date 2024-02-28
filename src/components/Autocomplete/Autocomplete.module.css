@@ -8,12 +8,15 @@
 }
 .input {
   width: 100%;
-  padding: 10px 15px;
+  padding: 3px;
   border: 2px solid rgb(34, 34, 34);
-  font-size: 1rem;
-  font-weight: 700;
   /* border-radius: 10px; */
 }
+
+.input::placeholder {
+  font-size: 10px;
+}
+
 .input:focus {
   border-color: blue;
   outline: none;
