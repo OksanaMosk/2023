@@ -4,7 +4,7 @@ import { BuyList } from 'components/BuyList/BuyList';
 import { useLocation } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 // import Find from 'components/Find/Find';
-import Loader from 'components/Loader/Loader';
+import LoaderSmall from 'components/Loader/LoaderSmall';
 import { useRef } from 'react';
 import { Map } from 'components/Map';
 import { Autocomplete } from 'components/Autocomplete';
@@ -75,7 +75,7 @@ const BuyPage = () => {
           <h2 className={css.isLoading}>Loading...</h2>
         )}
       </div>
-      <div className={css.contacts}></div>
+      {/* <div className={css.contacts}></div> */}
 
       <BuyList />
       {/* {error !== null && <Navigate to="/contacts/404" replace={true} />} */}
@@ -86,10 +86,7 @@ const BuyPage = () => {
       >
         Go back
       </NavLink>
-      {isLoading && <Loader />}
-      {/* {homes.length !== 0 ? ( */}
-      {/* ) : ( */}
-      {/* )} */}
+      {isLoading && <LoaderSmall className={css.loader} />}
     </div>
   );
 };

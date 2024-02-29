@@ -1,6 +1,6 @@
 .container {
   width: 40vw;
-  height: 100vh;
+  aspect-ratio: 1 / 1;
 }
 
 .itemHome {

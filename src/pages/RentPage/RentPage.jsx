@@ -4,7 +4,7 @@ import { RentList } from 'components/RentList/RentList';
 import { useLocation } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 // import Find from 'components/Find/Find';
-import Loader from 'components/Loader/Loader';
+import LoaderSmall from 'components/Loader/LoaderSmall';
 import { useRef } from 'react';
 import { MapRent } from 'components/MapRent';
 import { AutocompleteRent } from 'components/AutocompleteRent';
@@ -86,7 +86,7 @@ const RentPage = () => {
       >
         Go back
       </NavLink>
-      {isLoading && <Loader />}
+      {isLoading && <LoaderSmall />}
       {/* {homes.length !== 0 ? ( */}
       {/* ) : ( */}
       {/* )} */}

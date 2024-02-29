@@ -69,11 +69,7 @@ export const HomeElement = () => {
   };
   console.log('HomeId after fetch:', homeId);
 
-  // if (typeof homeId === 'string') {
-  //   console.log('homeId- це рядок.');
-  // } else {
-  //   console.error('homeId- це НЕ рядок.');
-  // }
+
   const citySearchUrl = homeId.citySearchUrl ? homeId.citySearchUrl.text : '';
 
   const address = homeId.address ? homeId.address : {};
