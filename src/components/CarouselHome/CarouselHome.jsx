@@ -74,7 +74,7 @@ export const CarouselHome = () => {
   return (
     <>
       {imagesLoaded ? (
-        <div style={{ height: isMobile ? '800px' : '100%' }}>
+        <div style={{ height: isMobile ? 'auto' : '100%' }}>
           <ImageGallery
             items={isMobile ? imagesMobile : imagesDesktop}
             autoPlay={true}
