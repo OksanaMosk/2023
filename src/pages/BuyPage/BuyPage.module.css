@@ -57,3 +57,6 @@
   margin: 100px 0 40px;
   z-index: 10;
 }
+.isLoading {
+  margin: 0 auto;
+}
