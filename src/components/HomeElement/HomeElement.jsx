@@ -7,13 +7,14 @@ import ImageGallery from '../Carousel/CarouselApp';
 import Filter from 'components/Filter/Filter';
 import 'react-image-gallery/styles/css/image-gallery.css';
 // import LoaderSmall from 'components/Loader/LoaderSmall';
-
+import LoaderSmall from 'components/Loader/LoaderSmall';
 import iconBath from '../images/iconBath.png';
 import iconBed from '../images/iconBed.png';
 import iconSizeFt from '../images/iconSizeFt.png';
 import iconSizeM from '../images/iconSizeM.png';
 
 import css from './HomeElement.module.css';
+import { selectIsLoading } from 'redux/homeId/homeId.selector';
 
 export const HomeElement = () => {
   const homeId = useSelector(selecthomeId);
@@ -21,7 +22,7 @@ export const HomeElement = () => {
 
   const { zpid } = useParams();
   console.log(' zpid : ', zpid);
-  // const isLoading = useSelector(state => state.buyStore.isLoading);
+  const isLoading = useSelector(selectIsLoading);
   // const error = useSelector(state => state.contactsStore.error);
 
   const dispatch = useDispatch();
@@ -51,9 +52,7 @@ export const HomeElement = () => {
 
         return (
           <>
-            <span className={css.descriptionSpan} style={{ color: '#bbbfca' }}>
-              {firstWord.charAt(0)}
-            </span>
+            <span style={{ color: '#bbbfca' }}>{firstWord.charAt(0)}</span>
             {firstWord.substring(1)}
             {restOfText}
           </>
@@ -86,7 +85,9 @@ export const HomeElement = () => {
   console.log('galery: ', galery);
 
   return (
-    typeof homeId !== 'string' && (
+    <>
+      {isLoading && <LoaderSmall />}
+      typeof homeId !== 'string' && (
       <>
         <div className={css.homeContainer}>
           <div className={css.homeLeftContainer}>
@@ -148,6 +149,7 @@ export const HomeElement = () => {
           <Filter />
         </div>
       </>
-    )
+      )
+    </>
   );
 };

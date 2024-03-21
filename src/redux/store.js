@@ -35,6 +35,12 @@ const authConfig = {
   whitelist: ['token'],
 };
 
+const homeIdConfig = {
+  key: 'homes/homeId',
+  storage,
+  whitelist: ['token'],
+};
+
 export const store = configureStore({
   reducer: {
     buyStore: persistReducer(buyConfig, buyReducer),
@@ -42,7 +48,7 @@ export const store = configureStore({
 
     filterStore: filterReducer,
     filterResults: filterReducer,
-    homeIdStore: homeIdReducer,
+    homeIdStore: persistReducer(homeIdConfig, homeIdReducer),
     auth: persistReducer(authConfig, authReducer),
   },
   middleware: getDefaultMiddleware =>
