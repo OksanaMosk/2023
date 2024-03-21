@@ -1,8 +1,19 @@
 .item-original {
-  width: 1000px;
-  height: 600px;
+  width: 350px;
+  height: auto;
 }
 .i-thumbnail {
-  width: 250px;
-  height: 150px;
+  width: 100px;
+  height: auto;
+}
+
+@media screen and (min-width: 1440px) {
+  .item-original {
+    width: 1000px;
+    height: 600px;
+  }
+  .i-thumbnail {
+    width: 250px;
+    height: 150px;
+  }
 }

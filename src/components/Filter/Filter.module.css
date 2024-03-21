@@ -1,6 +1,8 @@
 .formlFind {
   width: 750px;
   margin-top: 70px;
+  display: flex;
+  justify-content: center;
 }
 .labelFind {
   display: inline-block;
@@ -60,4 +62,6 @@
   white-space: nowrap;
   clip-path: inset(50%);
   border: 0;
+}
+@media screen and (min-width: 1440px) {
 }

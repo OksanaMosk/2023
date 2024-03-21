@@ -1,13 +1,13 @@
 .everyItem {
   aspect-ratio: 0;
   display: flex;
-  flex-wrap: nowrap;
+  flex-direction: column;
+  flex-wrap: wrap;
   gap: 30px;
-  justify-content: space-between;
+  justify-content: center;
 }
 .everyItem > p {
   float: left;
-
   padding: 5px;
   margin-block-end: 0px;
   margin-block-start: 0px;
@@ -32,8 +32,6 @@
   flex-wrap: wrap;
 }
 
-/* .everyItem > button, */
-
 .everyItem > img {
   border-radius: 20px 0 0 20px;
 }
@@ -42,7 +40,7 @@
 }
 
 .price {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   margin-block-end: 0;
   margin-block-start: 0;
@@ -58,8 +56,10 @@
 .address {
   font-size: 20px;
 }
-.published {
+.published,
+.views {
   padding-bottom: 10px;
+  font-size: 14px;
 }
 .views {
   margin-block-start: 0;
@@ -68,13 +68,14 @@
 .aboutDetails {
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
   gap: 20px;
 }
 
 .aboutDetails > p {
   margin-inline-start: 0;
   margin-inline-end: 0;
-  padding: 60px 0 60px 0;
+  padding: 30px 0 30px 0;
   margin-block-start: 0;
   margin-block-end: 0;
 }
@@ -82,40 +83,93 @@
 .homeContainer {
   margin: 100px auto 0 auto;
   display: flex;
-  justify-content: space-between;
-  flex-direction: row;
+  justify-content: center;
+  flex-direction: column;
   flex-wrap: wrap;
-  max-width: 1250px;
 }
 
 .homeLeftContainer {
+  margin: 0 auto;
   display: flex;
-  padding-left: 10px;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   flex-wrap: wrap;
-  width: 30%;
-  max-width: 500px;
 }
 
 .homeRightContainer {
+  margin: 0 auto;
   display: flex;
   justify-content: center;
-  align-items: center;
-  width: 712px;
+  width: 350px;
   padding: 7px 3px 0 3px;
   background-color: #e8e8e8;
   box-shadow: #2b15453d 1px 10px 10px 5px;
 }
 .description {
-  padding: 60px 0 0 10px;
+  margin: 0 auto;
+  padding: 30px 0 0 0;
   font-size: 18px;
   line-height: 1.3;
-  width: 60%;
-  text-align: justify;
+  width: 70%;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
   font-weight: 600;
+  text-align: justify;
+}
+.descriptionSpan {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  text-indent: 0;
 }
 .imageGallery {
   max-width: 500px;
 }
 /* https://incolorbalance.com/colorova-palitra-4194/ */
+
+@media screen and (min-width: 1440px) {
+  .everyItem {
+    aspect-ratio: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 30px;
+    justify-content: space-between;
+  }
+  .homeContainer {
+    margin: 100px auto 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 1250px;
+  }
+  .homeLeftContainer {
+    padding-left: 10px;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 30%;
+    max-width: 500px;
+  }
+  .aboutDetails > p {
+    padding: 60px 0 60px 0;
+  }
+  .homeRightContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 712px;
+    padding: 7px 3px 0 3px;
+    background-color: #e8e8e8;
+    box-shadow: #2b15453d 1px 10px 10px 5px;
+  }
+  .description {
+    padding: 60px 0 0 10px;
+    font-size: 18px;
+    line-height: 1.3;
+    width: 60%;
+    text-align: justify;
+    font-weight: 600;
+  }
+}

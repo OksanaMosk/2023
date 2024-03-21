@@ -51,7 +51,9 @@ export const HomeElement = () => {
 
         return (
           <>
-            <span style={{ color: '#bbbfca' }}>{firstWord.charAt(0)}</span>
+            <span className={css.descriptionSpan} style={{ color: '#bbbfca' }}>
+              {firstWord.charAt(0)}
+            </span>
             {firstWord.substring(1)}
             {restOfText}
           </>
@@ -68,7 +70,6 @@ export const HomeElement = () => {
     );
   };
   console.log('HomeId after fetch:', homeId);
-
 
   const citySearchUrl = homeId.citySearchUrl ? homeId.citySearchUrl.text : '';
 

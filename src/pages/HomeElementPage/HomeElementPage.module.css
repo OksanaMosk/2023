@@ -1,6 +1,7 @@
 .container {
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 .goBack {
   position: absolute;
@@ -16,17 +17,17 @@
   margin-block-start: 0;
   justify-content: center;
   align-items: center;
-  color: #e6eaed;
+  color: white;
   background-color: #af9e8e;
   font-size: 14px;
   transition: all 0.003s;
+  background-color: #b5c2e0;
 }
-.goback:active,
-.goback:hover,
-.goback:focus {
-  background-color: #b1b9cc;
-  color: #af9e8e;
+.goback:hover {
+  background-color: transparent;
+  color: #495464;
 }
+
 .containerHomeElement {
   background: #eee;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
