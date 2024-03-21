@@ -38,9 +38,9 @@ export const BuyList = ({ setSelectedMarker }) => {
               <div className={css.everyItem}>
                 {result.imgSrc && (
                   <img
+                    className={css.everyItemImg}
                     src={result.imgSrc}
                     alt={`House ${result.zpid}`}
-                    style={{ width: 'auto', maxHeight: '250px' }}
                   />
                 )}
                 <div className={css.about}>
@@ -57,21 +57,11 @@ export const BuyList = ({ setSelectedMarker }) => {
                   </p>
                   <div className={css.aboutDetails}>
                     <p>
-                      <img
-                        className={css.icon}
-                        src={iconBath}
-                        alt="iconBath"
-                        style={{ width: '20px', height: '20px' }}
-                      />
+                      <img className={css.icon} src={iconBath} alt="iconBath" />
                       {result.baths}
                     </p>
                     <p>
-                      <img
-                        className={css.icon}
-                        src={iconBed}
-                        alt="iconBed"
-                        style={{ width: '20px', height: '20px' }}
-                      />
+                      <img className={css.icon} src={iconBed} alt="iconBed" />
                       {result.beds}
                     </p>
                     <p>
@@ -79,7 +69,6 @@ export const BuyList = ({ setSelectedMarker }) => {
                         className={css.icon}
                         src={iconSizeFt}
                         alt="iconSizeFt"
-                        style={{ width: '20px', height: '20px' }}
                       />
                       {result.area} sqft
                     </p>
@@ -88,7 +77,6 @@ export const BuyList = ({ setSelectedMarker }) => {
                         className={css.icon}
                         src={iconSizeM}
                         alt="iconSizeM"
-                        style={{ width: '20px', height: '20px' }}
                       />
                       {(result.area / 10.7638).toFixed(2)} m²
                     </p>
