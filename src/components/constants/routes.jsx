@@ -5,5 +5,5 @@ export const BUY_ROUTE = '/buy';
 export const RENT_ROUTE = '/rent';
 export const REGISTER_ROUTE = '/register';
 export const LOGIN_ROUTE = '/login';
-// export const ERROR_ROUTE = '/contacts/404';
+export const ERROR_ROUTE = '/buy/404';
 // export const NOTFOUNDPPAGE_ROUTE = '/404';

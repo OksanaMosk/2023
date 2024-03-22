@@ -56,7 +56,6 @@ const Map = ({ center }) => {
           className={css.everyItemImg}
           src={marker.imgSrc}
           alt={`House ${marker.zpid}`}
-          style={{ width: 'auto', maxHeight: '100px' }}
         />
       )}
       <div className={css.about}>
@@ -73,39 +72,19 @@ const Map = ({ center }) => {
         </p>
         <div className={css.aboutDetails}>
           <p>
-            <img
-              className={css.icon}
-              src={iconBath}
-              alt="iconBath"
-              style={{ width: '15px', height: '15px' }}
-            />
+            <img className={css.icon} src={iconBath} alt="iconBath" />
             {marker.beds}
           </p>
           <p>
-            <img
-              className={css.icon}
-              src={iconBed}
-              alt="iconBed"
-              style={{ width: '15px', height: '15px' }}
-            />
+            <img className={css.icon} src={iconBed} alt="iconBed" />
             {marker.baths}
           </p>
           <p>
-            <img
-              className={css.icon}
-              src={iconSizeFt}
-              alt="iconSizeFt"
-              style={{ width: '15px', height: '15px' }}
-            />
+            <img className={css.icon} src={iconSizeFt} alt="iconSizeFt" />
             {marker.area} sqft
           </p>
           <p>
-            <img
-              className={css.icon}
-              src={iconSizeM}
-              alt="iconSizeM"
-              style={{ width: '15px', height: '15px' }}
-            />
+            <img className={css.icon} src={iconSizeM} alt="iconSizeM" />
             {(marker.area / 10.7638).toFixed(2)} m²
           </p>
         </div>

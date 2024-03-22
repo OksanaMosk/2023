@@ -4,7 +4,7 @@ import { fetchHome } from 'redux/buy/buy.reducer';
 import { selectBuy } from 'redux/buy/buy.selector';
 // import { selectFilterTerm } from 'redux/filter/filter.selector';
 import { useEffect } from 'react';
-import LoaderSmall from 'components/Loader/LoaderSmall';
+
 import iconBath from '../images/iconBath.png';
 import iconBed from '../images/iconBed.png';
 import iconSizeFt from '../images/iconSizeFt.png';
@@ -17,7 +17,7 @@ import css from './BuyList.module.css';
 export const BuyList = ({ setSelectedMarker }) => {
   const listResults = useSelector(selectBuy);
   // const zpid = useParams();
-  const isLoading = useSelector(state => state.buyStore.isLoading);
+
   const error = useSelector(state => state.buyStore.error);
   // const filterTerm = useSelector(selectFilterTerm);
 
@@ -91,45 +91,12 @@ export const BuyList = ({ setSelectedMarker }) => {
                   </NavLink>
                 </div>
 
-                {isLoading && <LoaderSmall />}
                 {error !== null && <>{error}</>}
               </div>
             </li>
           ))}
-
-          {/* {Array.isArray(listResults) &&
-            listResults.length > 0 &&
-            listResults.map(result => (
-              <HomeElement
-                key={result.id}
-                price={result.price}
-                img={result.imgSrc}
-                address={result.address}
-                beds={result.beds}
-                baths={result.baths}
-                area={result.area} */}
-          {/* // onRemoveContact={removeContact} */}
-          {/* /> ))} */}
         </ul>
       </div>
     )
   );
 };
-// const removeContact = contactId => {
-//   dispatch(deleteContacts(contactId));
-//   new Audio(mpDelete).play();
-// };
-
-// const visibleContacts = () => {
-//   return home.filter(contact =>
-//    home.name
-//       .toString()
-//       .toLowerCase()
-//       .includes(filterTerm.toString().toLowerCase())
-//   );
-// };
-
-// const visContacts = visibleContacts();
-// const sorted = [...visContacts].sort((a, b) =>
-//   a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
-// );

@@ -1,167 +1,172 @@
 header {
-  background-color: white;
-  color: #495464;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  position: fixed;
-  z-index: 1100;
-  height: 60px;
-  margin: 0 -9999px;
-  padding: 0 9999px;
-
-  flex-wrap: nowrap;
-  flex-direction: row;
-  margin: 0 auto;
-  width: 91vw;
+    background-color: white;
+    color: #495464;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: fixed;
+    z-index: 1100;
+    height: 60px;
+    margin: 0 -9999px;
+    padding: 0 9999px;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    margin: 0 auto;
+    width: 91vw;
 }
+
 .mainTitleContainer {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 .mainTit {
-  display: flex;
-  align-items: center;
-  margin-block-end: 0;
-  margin-block-start: 0;
-  width: 60vw;
+    display: flex;
+    align-items: center;
+    margin-block-end: 0;
+    margin-block-start: 0;
+    width: 60vw;
 }
 
 .mainTitle {
-  display: flex;
-  align-items: center;
-  margin-block-end: 0;
-  margin-block-start: 0;
-  font-size: clamp(10px, 3vw, 36px);
+    display: flex;
+    align-items: center;
+    margin-block-end: 0;
+    margin-block-start: 0;
+    font-size: clamp(10px, 3vw, 36px);
 }
+
 .mainTitle img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-block-end: 0;
-  margin-block-start: 0;
-  line-height: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-block-end: 0;
+    margin-block-start: 0;
+    line-height: 1;
 }
+
 .menu {
-  display: flex;
-  flex-wrap: wrap;
-  row-gap: 10px;
-  padding-bottom: 50px;
-  padding-left: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    padding-bottom: 50px;
+    padding-left: 30px;
 }
 
 .title {
-  margin-right: 20px;
-  background-color: #af9e8e;
-  display: inline-flex;
-  text-decoration: none;
-  border: 1.5px solid #e6eaed;
-  border-radius: 15px;
-  width: 200px;
-  height: 22px;
-  margin-block-end: 0;
-  margin-block-start: 0;
-  justify-content: center;
-  align-items: center;
-  color: #e6eaed;
-  font-size: 30px;
-  transition: all 0.25s;
-  transition: all 0.25s allow-discrete;
-  font: inherit;
-  cursor: pointer;
+    margin-right: 20px;
+    background-color: #af9e8e;
+    display: inline-flex;
+    text-decoration: none;
+    border: 1.5px solid #e6eaed;
+    border-radius: 15px;
+    width: 200px;
+    height: 22px;
+    margin-block-end: 0;
+    margin-block-start: 0;
+    justify-content: center;
+    align-items: center;
+    color: #e6eaed;
+    font-size: 30px;
+    transition: all 0.25s;
+    transition: all 0.25s allow-discrete;
+    font: inherit;
+    cursor: pointer;
 }
 
 .title:active,
 .title:hover,
 .title:focus {
-  background-color: #b1b9cc;
-  color: #9a8f89;
+    background-color: #b1b9cc;
+    color: #9a8f89;
 }
+
 .authorization {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
+
 .titleAuthorization {
-  margin-left: 20px;
-  background-color: #af9e8e;
-  display: inline-flex;
-  text-decoration: none;
-  border: 1.5px solid #e6eaed;
-  border-radius: 15px;
-  width: 80px;
-  height: 22px;
-  margin-block-end: 0;
-  margin-block-start: 0;
-  justify-content: center;
-  align-items: center;
-  color: #e6eaed;
-  font-size: 30px;
-  transition: all 0.25s;
-  transition: all 0.25s allow-discrete;
-  font: inherit;
-  cursor: pointer;
+    margin-left: 20px;
+    background-color: #af9e8e;
+    display: inline-flex;
+    text-decoration: none;
+    border: 1.5px solid #e6eaed;
+    border-radius: 15px;
+    width: 80px;
+    height: 22px;
+    margin-block-end: 0;
+    margin-block-start: 0;
+    justify-content: center;
+    align-items: center;
+    color: #e6eaed;
+    font-size: 30px;
+    transition: all 0.25s;
+    transition: all 0.25s allow-discrete;
+    font: inherit;
+    cursor: pointer;
 }
 
 .titleAuthorization:active,
 .titleAuthorization:hover,
 .titleAuthorization:focus {
-  background-color: #b1b9cc;
-  color: #9a8f89;
+    background-color: #b1b9cc;
+    color: #9a8f89;
 }
+
 .logOutButton {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #af9e8e;
-  display: inline-flex;
-  text-decoration: none;
-  border: 1.5px solid #e6eaed;
-  border-radius: 15px;
-  width: 80px;
-  height: 22px;
-  margin-block-end: 0;
-  margin-block-start: 0;
-  color: #e6eaed;
-  font-size: 30px;
-  transition: all 0.25s;
-  transition: all 0.25s allow-discrete;
-  font: inherit;
-  cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #af9e8e;
+    display: inline-flex;
+    text-decoration: none;
+    border: 1.5px solid #e6eaed;
+    border-radius: 15px;
+    width: 80px;
+    height: 22px;
+    margin-block-end: 0;
+    margin-block-start: 0;
+    color: #e6eaed;
+    font-size: 30px;
+    transition: all 0.25s allow-discrete;
+    font: inherit;
+    cursor: pointer;
 }
+
 .nameLogOutButton {
-  position: absolute;
-  top: 10px;
-  right: 100px;
-  color: #6e6662;
-  font-size: 20px;
+    position: absolute;
+    top: 10px;
+    right: 100px;
+    color: #6e6662;
+    font-size: 20px;
 }
 
 .links {
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: row;
-  width: 40vw;
-  gap: 30px;
-  color: #495464;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    width: 40vw;
+    gap: 30px;
+    color: #495464;
 }
 
 .toLink {
-  display: flex;
-  font-family: 'Montserrat', sans-serif;
-  justify-content: flex-start;
-  align-items: center;
-  border-radius: 10px;
-  font-size: clamp(10px, 3vw, 18px);
-  text-decoration: none;
-  text-transform: capitalize;
-
-  cursor: pointer;
+    display: flex;
+    font-family: 'Montserrat', sans-serif;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 10px;
+    font-size: clamp(10px, 3vw, 18px);
+    text-decoration: none;
+    text-transform: capitalize;
+    cursor: pointer;
 }
+
 .toLink:hover,
 .toLink:focus {
-  color: #495464;
-  font-weight: 600;
+    color: #495464;
+    font-weight: 600;
 }

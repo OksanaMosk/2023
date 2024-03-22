@@ -1,64 +1,65 @@
 .root {
-    position: absolute;
-    width: 90vw;
-    padding-bottom: 30px;
+  position: absolute;
+  width: 90vw;
+  padding-bottom: 30px;
 }
 
 .root * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .input {
-    width: 100%;
-    padding: 3px;
-    border: 2px solid rgb(34, 34, 34);
-    /* border-radius: 10px; */
+  width: 100%;
+  padding: 3px;
+  border: 2px solid rgb(34, 34, 34);
+  font-family: 'Montserrat', sans-serif;
 }
 
 .input::placeholder {
-    font-size: 10px;
+  font-size: 10px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .input:focus {
-    border-color: blue;
-    outline: none;
+  border-color: blue;
+  outline: none;
 }
 
 .suggestions {
-    position: absolute;
-    top: 0;
-    transform: translateY(39px);
-    background: #fff;
-    border: 2px solid rgb(34, 34, 34);
-    width: 100%;
-    z-index: 10;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-align: left;
+  position: absolute;
+  top: 0;
+  transform: translateY(39px);
+  background: #fff;
+  border: 2px solid rgb(34, 34, 34);
+  width: 100%;
+  z-index: 10;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
 }
 
 .listItem {
-    padding: 10px 15px;
-    cursor: pointer;
+  padding: 10px 15px;
+  cursor: pointer;
 }
 
 .listItem :hover {
-    background: #efefef;
+  background: #efefef;
 }
 
 @media screen and (min-width: 1440px) {
-    .root {
-        width: 40vw;
-    }
-    .input::placeholder {
-        font-size: 16px;
-        padding: 5px;
-    }
-    .input {
-        width: 100%;
-        border: 2px solid rgb(34, 34, 34);
-        border-radius: 10px 10px 0 0;
-        font-size: 16px;
-    }
+  .root {
+    width: 40vw;
+  }
+  .input::placeholder {
+    font-size: 16px;
+    padding: 5px;
+  }
+  .input {
+    width: 100%;
+    border: 2px solid rgb(34, 34, 34);
+    border-radius: 10px 10px 0 0;
+    font-size: 16px;
+  }
 }

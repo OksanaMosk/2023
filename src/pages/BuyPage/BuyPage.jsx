@@ -24,7 +24,7 @@ const libraries = ['places'];
 const BuyPage = () => {
   //   const listResults = useSelector(state => state.contactsStore.listResults);
   const isLoading = useSelector(state => state.buyStore.isLoading);
-  // const error = useSelector(state => state.contactsStore.error);
+  // const error = useSelector(state => state.buyStore.error);
   const location = useLocation();
   const backLinkRef = useRef(location.state?.from ?? '/');
 
@@ -64,30 +64,37 @@ const BuyPage = () => {
   }, []);
 
   return (
-    <div className={css.buyContainer}>
-      <div className={css.mapContainer}>
-        <div className={css.addressSearchContainer}>
-          <Autocomplete isLoaded={isLoaded} onSelect={onPlaceSelect} />
+    <>
+      {isLoading && (
+        <div className={css.loader}>
+          <LoaderSmall />
         </div>
-        {isLoaded && window.google && window.google.maps ? (
-          <Map center={center} />
-        ) : (
-          <h2 className={css.isLoading}>Loading...</h2>
-        )}
-      </div>
-      {/* <div className={css.contacts}></div> */}
+      )}
+      <div className={css.buyContainer}>
+        <div className={css.mapContainer}>
+          <div className={css.addressSearchContainer}>
+            <Autocomplete isLoaded={isLoaded} onSelect={onPlaceSelect} />
+          </div>
+          {isLoaded && window.google && window.google.maps ? (
+            <Map center={center} />
+          ) : (
+            <div className={css.loader}>
+              <LoaderSmall />
+            </div>
+          )}
+        </div>
 
-      <BuyList />
-      {/* {error !== null && <Navigate to="/contacts/404" replace={true} />} */}
-      <NavLink
-        state={{ from: location }}
-        className={css.goBack}
-        to={backLinkRef.current}
-      >
-        Go back
-      </NavLink>
-      {isLoading && <LoaderSmall className={css.loader} />}
-    </div>
+        <BuyList />
+        {/* {error !== null && <Navigate to="/buy/404" replace={true} />} */}
+        <NavLink
+          state={{ from: location }}
+          className={css.goBack}
+          to={backLinkRef.current}
+        >
+          Go back
+        </NavLink>
+      </div>
+    </>
   );
 };
 export default BuyPage;

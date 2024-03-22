@@ -11,9 +11,11 @@
   width: 100%;
   padding: 3px;
   height: 40px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .input::placeholder {
+  font-family: 'Montserrat', sans-serif;
   font-size: 10px;
 }
 
