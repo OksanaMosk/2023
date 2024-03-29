@@ -52,7 +52,13 @@ export const HomeElement = () => {
 
         return (
           <>
-            <span style={{ color: '#bbbfca' }}>{firstWord.charAt(0)}</span>
+            <span
+              style={{
+                color: '#bbbfca',
+              }}
+            >
+              {firstWord.charAt(0)}
+            </span>
             {firstWord.substring(1)}
             {restOfText}
           </>
@@ -87,69 +93,66 @@ export const HomeElement = () => {
   return (
     <>
       {isLoading && <LoaderSmall />}
-      typeof homeId !== 'string' && (
-      <>
-        <div className={css.homeContainer}>
-          <div className={css.homeLeftContainer}>
-            <h2 className={css.title}>{citySearchUrl}</h2>
-            <p className={css.address}>
-              {streetAddress}, {city}, {state} {zipcode}, {country}
+      {/* typeof homeId !== 'string' && ( */}
+
+      <div className={css.homeContainer}>
+        <div className={css.homeLeftContainer}>
+          <h2 className={css.title}>{citySearchUrl}</h2>
+          <p className={css.address}>
+            {streetAddress}, {city}, {state} {zipcode}, {country}
+          </p>
+          <div className={css.aboutDetails}>
+            <p>
+              <img
+                className={css.icon}
+                src={iconBath}
+                alt="iconBath"
+                style={{ width: '20px', height: '20px' }}
+              />
+              {homeId.bedrooms}
             </p>
-            <div className={css.aboutDetails}>
-              <p>
-                <img
-                  className={css.icon}
-                  src={iconBath}
-                  alt="iconBath"
-                  style={{ width: '20px', height: '20px' }}
-                />
-                {homeId.bedrooms}
-              </p>
-              <p>
-                <img
-                  className={css.icon}
-                  src={iconBed}
-                  alt="iconBed"
-                  style={{ width: '20px', height: '20px' }}
-                />
-                {homeId.bathrooms}
-              </p>
-              <p>
-                <img
-                  className={css.icon}
-                  src={iconSizeFt}
-                  alt="iconSizeFt"
-                  style={{ width: '20px', height: '20px' }}
-                />
-                {homeId.livingArea} sqft
-              </p>
-              <p>
-                <img
-                  className={css.icon}
-                  src={iconSizeM}
-                  alt="iconSizeM"
-                  style={{ width: '20px', height: '20px' }}
-                />
-                {(homeId.livingArea / 10.7638).toFixed(2)} m²
-              </p>
-            </div>
-            <p className={css.price}>$ {price.toLocaleString()}</p>
-            <p className={css.published}>
-              Published on: {homeId.datePostedString}
+            <p>
+              <img
+                className={css.icon}
+                src={iconBed}
+                alt="iconBed"
+                style={{ width: '20px', height: '20px' }}
+              />
+              {homeId.bathrooms}
             </p>
-            <p className={css.views}>Views: {homeId.pageViewCount}</p>
+            <p>
+              <img
+                className={css.icon}
+                src={iconSizeFt}
+                alt="iconSizeFt"
+                style={{ width: '20px', height: '20px' }}
+              />
+              {homeId.livingArea} sqft
+            </p>
+            <p>
+              <img
+                className={css.icon}
+                src={iconSizeM}
+                alt="iconSizeM"
+                style={{ width: '20px', height: '20px' }}
+              />
+              {(homeId.livingArea / 10.7638).toFixed(2)} m²
+            </p>
           </div>
-          <div className={css.homeRightContainer}>
-            <ImageGallery className={css.imageGallery} />
-          </div>
-          <HighlightedDescription
-            className={css.description}
-            description={homeId.description}
-          />
-          <Filter />
+          <p className={css.price}>$ {price.toLocaleString()}</p>
+          <p className={css.published}>
+            Published on: {homeId.datePostedString}
+          </p>
+          <p className={css.views}>Views: {homeId.pageViewCount}</p>
         </div>
-      </>
-      )
+        <div className={css.homeRightContainer}>
+          <ImageGallery className={css.imageGallery} />
+        </div>
+        <HighlightedDescription description={homeId.description} />
+        <Filter />
+      </div>
+
+      {/* ) */}
     </>
   );
 };

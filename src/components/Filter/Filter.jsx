@@ -27,7 +27,7 @@ export default function Filter() {
   return (
     <form className={css.formlFind} onSubmit={onFormSubmit}>
       <label className={css.labelFind}>
-        Search address
+        Find nearby
         <input
           className={css.inputFind}
           type="text"

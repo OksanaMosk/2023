@@ -1,12 +1,25 @@
 .item-original {
-  width: 350px;
+  width: 280px;
   height: auto;
 }
 .i-thumbnail {
   width: 100px;
   height: auto;
 }
-
+.image-gallery {
+  width: 280px;
+}
+.image-gallery-thumbnails {
+  width: 280px;
+}
+.image-gallery-thumbnails .image-gallery-thumbnails-container {
+  width: 280px;
+}
+.image-gallery-thumbnail .image-gallery-thumbnail-image {
+  vertical-align: middle;
+  width: 50%;
+  line-height: 0;
+}
 @media screen and (min-width: 1440px) {
   .item-original {
     width: 1000px;

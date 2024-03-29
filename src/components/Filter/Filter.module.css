@@ -1,26 +1,28 @@
 .formlFind {
-  width: 750px;
-  margin-top: 70px;
   display: flex;
+  width: 300px;
+  position: relative;
   justify-content: center;
+  margin: 70px auto 50px;
 }
 .labelFind {
-  display: inline-block;
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   color: #6e6662;
-  width: 270px;
+  width: 300px;
   font-size: 18px;
 }
 
 .inputFind {
-  align-items: flex-start;
+  justify-content: center;
   display: flex;
   font-size: 18px;
   padding-left: 10px;
   margin-top: 10px;
   background-color: #b1b9cc;
   border-radius: 10px;
-  width: 287px;
+  width: 300px;
   height: 30px;
   cursor: pointer;
   border: 1px solid #6e6662;
@@ -34,6 +36,7 @@
 .inputFind ::placeholder {
   font-size: 18px;
   border: none;
+  padding-left: 10px;
 }
 .inputButton {
   display: inline-block;
@@ -41,27 +44,68 @@
   height: 30px;
   border: 0;
   border-radius: 10px;
-  position: relative;
   background-repeat: no-repeat;
   background-position: center;
   background: inherit;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   outline: none;
+  position: absolute;
+  left: 90%;
+  bottom: 1px;
 }
 .inputButton:hover {
   opacity: 1;
 }
 .buttonLabel {
-  position: absolute;
   width: 1px;
   height: 1px;
   padding: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  clip-path: inset(50%);
+  bottom: 20px;
+  z-index: 1;
   border: 0;
 }
 @media screen and (min-width: 1440px) {
+  .formlFind {
+    width: 750px;
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+  }
+  .labelFind {
+    display: inline-block;
+    text-align: center;
+    color: #6e6662;
+    width: 270px;
+    font-size: 18px;
+  }
+  .inputFind {
+    align-items: flex-start;
+    display: flex;
+    font-size: 18px;
+    padding-left: 10px;
+    margin-top: 10px;
+    background-color: #b1b9cc;
+    border-radius: 10px;
+    width: 287px;
+    height: 30px;
+    cursor: pointer;
+    border: 1px solid #6e6662;
+  }
+  .inputButton {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background: inherit;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    outline: none;
+    position: absolute;
+    left: 67%;
+    bottom: 1px;
+  }
 }
