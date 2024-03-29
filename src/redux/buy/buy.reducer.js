@@ -16,7 +16,7 @@ export const fetchHome = createAsyncThunk(
         State,
         RegionID
       );
-      const apiKey = '225cd6e8-20f8-48d1-ae7f-47b5e7f7351b';
+      const apiKey = '615e64d1-ae7e-4fb1-afd6-6156e7983b73';
 
       const { data } = await axios.get(
         `${api_url}?api_key=${apiKey}&url=https://www.zillow.com/${formattedValue}-${State.toLowerCase()}?searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A${
