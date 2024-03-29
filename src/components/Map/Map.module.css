@@ -9,7 +9,7 @@
   padding: 0;
   border: 1px solid #e6eaed;
   font-size: 6px;
-  width: 200px;
+  width: 183px;
   height: auto;
   background-color: white;
   display: flex;
@@ -37,12 +37,12 @@
 
 .everyItemImg {
   border-radius: 5px 0 0 5px;
-  height: 69px;
+  height: 65px;
 }
 
 .about {
   display: block;
-  padding: 2px 0 0 5px;
+  padding: 2px 0 0 3px;
   border-radius: 5px;
 }
 
@@ -60,9 +60,10 @@
 }
 
 .aboutDetails {
+  font-size: 6px;
   display: flex;
   flex-direction: row;
-  gap: 2px;
+  gap: 1px;
 }
 
 .aboutDetails > p {

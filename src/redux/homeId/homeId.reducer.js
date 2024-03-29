@@ -3,28 +3,13 @@ import axios from 'axios';
 
 const api_url = 'https://app.scrapeak.com/v1/scrapers/zillow/property';
 
-// Створіть thunk для отримання інформації про власність за zpid
-// export const fetchHomeInfo = createAsyncThunk(
-//   'homes/fetchHomeInfo',
-//   async (zpid, thunkAPI) => {
-//     try {
-//       const response = await axios.get(api_url, {
-//         params: { api_key: 'YOUR-API-KEY', zpid },
-//       });
-//       return response.data.data; // Адаптуйте це залежно від структури відповіді
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
-
 export const fetchHomeId = createAsyncThunk(
   'homes/homeId',
   async (zpid, thunkApi) => {
     try {
       const zpidValue = zpid.zpid;
 
-      const apiKey = 'b0203350-be7c-43b0-9604-70cd8e7835aa';
+      const apiKey = '225cd6e8-20f8-48d1-ae7f-47b5e7f7351b';
       const stringZpid = String(zpidValue);
       console.log('Fetching homeId with zpid:', stringZpid);
 
